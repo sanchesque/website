@@ -34,6 +34,10 @@ jobs:
         uses: actions/configure-pages@v2
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
+        env:
+          # Create and store API_TOKEN_GITHUB in repository 
+          # secrets -> explained later in this article
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           # Upload entire repository
           path: '.'
