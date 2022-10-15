@@ -21,31 +21,207 @@
   </head>
 
   <body>
-    <!-- prettier-ignore -->
+    <!-- Logo -->
     <div class="container">
     <div style="text-align: center; margin-top: 50px">
       <img src="img/sanchesque_logo250px.png" style="width: 250px; height: 250px;" />
-      <h2 class="mt-5 pb-3">Welcome to Sanchesque studios website</h2>
     </div>
 
-    <h3 class="mt-5 pb-3">¿Qué es Sanchesque Studios?</h3>
-    <p>Sanchesque Studios es un estudio creación de contenidos digitales, desde el desarrollo de software hasta la organización de eventos puramente digitales, pasando por el diseño digital con base en las Islas Canarias.</p>
+    <!--  Header -->
+    <div class="text-center">
+      <p class="header">Bienvenido a Sanchesque Studios</p>
+      <hr class="my-5" />
+    </div>
 
-    <h3 class="mt-5 pb-3">¿Cuáles son los objetivos de Sanchesque?</h3>
-    <p>Los objetivos de Sanchesque son principalmente 3:<br>
+     <!--  Content -->
+     <section>
+      <p class="subheader text-center mb-4 pb-2">Sobre Sanchesque</p>
 
-      Aprovechar el talento increíble que existe las islas, o que ha emigrado fuera para desarrollar productos que se puedan exportar desde Canarias.<br>
-      Dar a conocer el potencial que existe en las islas para generar valor.<br>
-      Generar sinergias en el tejido productivo digital canario.<br>
-    </p>
-    <h3 class="mt-5 pb-3">¿Por qué Sanchesque?</h3>
-    <p>Para muchas personas las raíces marcan parte de su vida, y para el estudio no iba a ser menos, ya que tiene su personalidad propia. En la fundación del estudio se ha marcado un principio claro, el desarrollo desde Canarias, aportando valor a las islas y dejando la huella ‘cholas’ en todos nuestros trabajos. Y más importante aún, es un alegato a todas esas madres que son capaces de darle nombres a objetos que hijos e hijas siempre recordarán.<br>
-    </p>
-    <p>Sanchesque viene del uso coloquial y deformado de la marca Sancheski en las Islas, aunque según la Academia Canaria de La Lengua (https://www.academiacanarialengua.org/consultas/2021/05/Arrecha-y-sancheski/) se corresponde con el homónimo de la marca. Es común escuchar Sanchesque de residentes de las islas de cierta edad en lugar del nombre correctamente pronunciado. Esta empresa es la primera en vender ‘skates’, o monopatín para los rigurosos con el idioma, en España, allá por los años 60’s lo que hizo que popularmente se conocieran a éstos con el nombre de su marca.<br>
-    </p>
-    <h3 class="mt-5 pb-3">Entonces el logotipo es un skate, ¿No?</h3>
-    <p>Se podría decir que es un skatechola, la chola es un sello de identidad de las Islas, pero el skate le da nombre al estudio, así que, no puede ser ni una ni otro.</p>
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-md-12 mb-4">
+          <!-- Accordion wrapper -->
+          <div class="accordion" id="accordionExample">
+            <!-- Single collapse -->
+            <div id="headingOne">
+              <h2>
+                <button
+                  class="btn btn-link btn-block text-start ps-3"
+                  type="button"
+                  data-mdb-toggle="collapse"
+                  data-mdb-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  ¿Qué es Sanchesque Studios?
+                </button>
+              </h2>
+            </div>
+
+            <div
+              id="collapseOne"
+              class="collapse show ps-3"
+              aria-labelledby="headingOne"
+              data-mdb-parent="#accordionExample"
+            >
+            Sanchesque Studios es un estudio creación de contenidos digitales, desde 
+            el desarrollo de software hasta la organización de eventos puramente digitales, 
+            pasando por el diseño digital con base en las Islas Canarias.
+            </div>
+            <!-- Single collapse -->
+
+            <!-- Single collapse -->
+            <div id="headingTwo">
+              <h2>
+                <button
+                  class="btn btn-link btn-block text-start ps-3 collapsed"
+                  type="button"
+                  data-mdb-toggle="collapse"
+                  data-mdb-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  ¿Cuáles son los objetivos de Sanchesque?
+                </button>
+              </h2>
+            </div>
+
+            <div
+              id="collapseTwo"
+              class="collapse ps-3"
+              aria-labelledby="headingTwo"
+              data-mdb-parent="#accordionExample"
+            >
+            Los objetivos de Sanchesque son principalmente 3:<br>
+
+            Aprovechar el talento increíble que existe las islas, o que ha emigrado fuera 
+            para desarrollar productos que se puedan exportar desde Canarias.<br>
+            Dar a conocer el potencial que existe en las islas para generar valor.<br>
+            Generar sinergias en el tejido productivo digital canario.<br>
+            </div>
+            <!-- Single collapse -->
+
+            <!-- Single collapse -->
+            <div id="headingThree">
+              <h2>
+                <button
+                  class="btn btn-link btn-block text-start ps-3 collapsed"
+                  type="button"
+                  data-mdb-toggle="collapse"
+                  data-mdb-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  ¿Por qué Sanchesque?
+                </button>
+              </h2>
+            </div>
+
+            <div
+              id="collapseThree"
+              class="collapse ps-3"
+              aria-labelledby="headingThree"
+              data-mdb-parent="#accordionExample"
+            >
+            Para muchas personas las raíces marcan parte de su vida, y para el estudio 
+            no iba a ser menos, ya que tiene su personalidad propia. En la fundación del 
+            estudio se ha marcado un principio claro, el desarrollo desde Canarias, 
+            aportando valor a las islas y dejando la huella ‘cholas’ en todos nuestros 
+            trabajos. Y más importante aún, es un alegato a todas esas madres que son 
+            capaces de darle nombres a objetos que hijos e hijas siempre recordarán.<br>
+            Sanchesque viene del uso coloquial y deformado de la marca Sancheski en las 
+            Islas, aunque 
+            <a href="https://www.academiacanarialengua.org/consultas/2021/05/Arrecha-y-sancheski/">según la Academia Canaria de La Lengua</a> 
+            se corresponde con el homónimo de la marca. Es común escuchar Sanchesque 
+            de residentes de las islas de cierta edad en lugar del nombre correctamente 
+            pronunciado. Esta empresa es la primera en vender ‘skates’, o monopatín para 
+            los rigurosos con el idioma, en España, allá por los años 60’s lo que hizo 
+            que popularmente se conocieran a éstos con el nombre de su marca.<br>
+            </div>
+            <!-- Single collapse -->
+
+            <!-- Single collapse -->
+            <div id="headingFour">
+              <h2>
+                <button
+                  class="btn btn-link btn-block text-start ps-3 collapsed"
+                  type="button"
+                  data-mdb-toggle="collapse"
+                  data-mdb-target="#collapseFour"
+                  aria-expanded="false"
+                  aria-controls="collapseFour"
+                >
+                  Entonces el logotipo es un skate, ¿No?
+                </button>
+              </h2>
+            </div>
+
+            <div
+              id="collapseFour"
+              class="collapse ps-3"
+              aria-labelledby="headingFour"
+              data-mdb-parent="#accordionExample"
+            >
+              Se podría decir que es un skatechola, la chola es un sello de identidad de 
+              las Islas, pero el skate le da nombre al estudio, así que, no puede ser 
+              ni una ni otro.
+            </div>
+          </div>
+          <!-- Accordion wrapper -->
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </section>
   </div>
+    <footer class="bg-primary text-white mb-5">
+      <!-- Grid container -->
+      <div class="container p-4">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-9 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Descubre el potencial canario</h5>
+
+            <p>
+              Islas Canarias
+            </p>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Enlaces</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!" class="text-white">Contacto</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Twitter</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Facebook</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </div>
+      <!-- Grid container -->
+
+      <!-- Copyright -->
+      <div
+        class="text-center p-3"
+        style="background-color: rgba(0, 0, 0, 0.2); color: rgba(255, 255, 255, 0.6);"
+      >
+        © 2022 Copyright:
+        <a class="text-white" href="https://sanchesque.com/"> Sanchesque.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
   </body>
 
   <!-- MDB -->
