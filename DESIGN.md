@@ -6,7 +6,7 @@
 **Descriptor:** estudio creativo
 **Personalidad:** expresiva, contemporánea, segura y artesanal.
 
-La identidad combina una silueta negra orgánica con un logotipo tipográfico en minúsculas. El símbolo recuerda a una pluma, una pincelada o una forma en movimiento: transmite creatividad y trabajo hecho con intención. La dirección visual debe conservar ese equilibrio entre gesto artístico y claridad profesional.
+La identidad combina una silueta negra orgánica con un logotipo tipográfico en minúsculas. El símbolo recuerda a una chola, o un skate saltando: transmite creatividad y trabajo hecho con intención. La dirección visual debe conservar ese equilibrio entre gesto artístico y claridad profesional.
 
 **Idea central:** creatividad con carácter propio.
 

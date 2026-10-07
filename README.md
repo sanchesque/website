@@ -10,7 +10,8 @@ Fuente de verdad: [`DESIGN.md`](DESIGN.md). Resumen operativo:
 - **Marca:** sanchesque studios — estudio creativo digital con base en
   las Islas Canarias. Voz: creativa, clara, cercana y segura.
 - **Idea central:** creatividad con carácter propio.
-- **Logotipo:** símbolo orgánico (pluma / pincelada / forma en movimiento)
+- **Logotipo:** símbolo orgánico que recuerda a una chola, o un skate
+  saltando (el «skatechola» de la historia del nombre)
   + nombre en minúsculas. En esta web se usan:
   - `img/sanchesque.svg` — **versión principal** (símbolo sobre el
     nombre), vectorial, como acento del hero. Nunca por debajo de 160 px
