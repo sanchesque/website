@@ -1,8 +1,0 @@
-{
-  "name": "bootstrap-fluent",
-  "version": "1.0.0",
-  "main": "js/mdb.min.js",
-  "repository": "https://github.com/sanchesque/website.git",
-  "author": "alexmorenogc",
-  "license": "MIT"
-}

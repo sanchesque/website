@@ -1,0 +1,128 @@
+/* sanchesque studios — design tokens (derived from DESIGN.md)
+   Monochrome base, Manrope as the single family, generous space. */
+
+:root {
+  /* color (DESIGN.md §4) */
+  --ink: #000000;          /* logo, headlines, high contrast */
+  --paper: #FFFFFF;        /* backgrounds, inverted logo */
+  --charcoal: #222222;     /* secondary text */
+  --mist: #F2F2F2;         /* surfaces, dividers, soft backgrounds */
+
+  /* type (§5): one family, weight-based hierarchy */
+  --font: "Manrope", "DM Sans", sans-serif;
+  --fs-hero: clamp(2.6rem, 6vw, 4.5rem);
+  --fs-h2: clamp(1.6rem, 3vw, 2.4rem);
+  --fs-h3: 1.25rem;
+  --fs-body: 1.0625rem;
+  --fs-small: 0.875rem;
+  --lh-tight: 1.08;
+  --lh-body: 1.6;
+
+  /* space: simple 4px scale, logos get air (§3, §6) */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 16px; --sp-4: 24px;
+  --sp-5: 40px; --sp-6: 64px; --sp-7: 96px; --sp-8: 128px;
+  --content: 1080px;
+
+  /* organic accents (§6): generous, soft */
+  --radius: 20px;
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font: 400 var(--fs-body)/var(--lh-body) var(--font);
+  color: var(--charcoal);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { color: var(--ink); line-height: var(--lh-tight); margin: 0 0 var(--sp-3); }
+h1 { font-size: var(--fs-hero); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: var(--fs-h2); font-weight: 600; }
+h3 { font-size: var(--fs-h3); font-weight: 600; }
+p { margin: 0 0 var(--sp-3); }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+.container { max-width: var(--content); margin: 0 auto; padding: 0 var(--sp-4); }
+.container.narrow { max-width: 720px; }
+.wide { max-width: 60ch; }
+
+/* ---------- header: tipographic logo version (§3) ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--paper);
+  border-bottom: 1px solid var(--mist);
+}
+.site-header .container {
+  display: flex; align-items: center; justify-content: space-between;
+  min-height: 72px;
+}
+.wordmark { text-decoration: none; }
+.wordmark strong {
+  display: block; font: 700 1.4rem var(--font); color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.wordmark span {
+  display: block; font: 500 0.7rem var(--font); color: var(--charcoal);
+  text-align: right; margin-top: -4px;
+}
+.site-nav { display: flex; gap: var(--sp-4); }
+.site-nav a {
+  font: 600 var(--fs-small) var(--font); text-decoration: none;
+  color: var(--charcoal); padding: var(--sp-1) 0;
+  border-bottom: 2px solid transparent;
+}
+.site-nav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+/* ---------- hero: the real logo is the accent (§6) ---------- */
+.hero { padding: var(--sp-8) 0; }
+.hero-grid {
+  display: grid; gap: var(--sp-6);
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+@media (max-width: 720px) {
+  .hero { padding: var(--sp-7) 0; }
+  .hero-grid { grid-template-columns: 1fr; }
+}
+.hero .kicker {
+  font: 600 var(--fs-small) var(--font); text-transform: uppercase;
+  letter-spacing: 0.18em; color: var(--charcoal); margin-bottom: var(--sp-3);
+}
+.hero .lead { font-size: 1.25rem; max-width: 34ch; color: var(--charcoal); }
+.hero-logo {
+  width: clamp(180px, 24vw, 280px); height: auto;
+}
+
+/* ---------- sections ---------- */
+.section { padding: var(--sp-7) 0; }
+.section--alt { background: var(--mist); }
+.section h2 { margin-bottom: var(--sp-5); max-width: 24ch; }
+.grid { display: grid; gap: var(--sp-4); }
+@media (min-width: 720px) {
+  .grid--3 { grid-template-columns: repeat(3, 1fr); }
+}
+.card {
+  background: var(--paper); border-radius: var(--radius);
+  padding: var(--sp-5);
+}
+.section--alt .card { background: var(--paper); }
+.section:not(.section--alt) .card { border: 1px solid var(--mist); }
+
+.big-link { font-weight: 700; text-decoration-thickness: 2px; }
+
+/* ---------- footer ---------- */
+.site-footer {
+  background: var(--ink); color: var(--mist);
+  padding: var(--sp-6) 0; margin-top: var(--sp-7);
+}
+.site-footer .wordmark strong { color: var(--paper); }
+.site-footer .wordmark span { color: var(--mist); }
+.site-footer .container {
+  display: flex; flex-wrap: wrap; justify-content: space-between;
+  align-items: flex-end; gap: var(--sp-4);
+}
+.site-footer a { color: inherit; }
