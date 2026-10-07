@@ -85,6 +85,15 @@ img { max-width: 100%; display: block; }
   align-items: center;
 }
 @media (max-width: 720px) {
+  /* the header stacks: wordmark on its own row, nav below full-width,
+     so five links never squeeze or clip the logo */
+  .site-header .container {
+    flex-wrap: wrap; row-gap: var(--sp-1);
+    padding-top: var(--sp-3); padding-bottom: var(--sp-3);
+    min-height: 0;
+  }
+  .site-nav { order: 2; width: 100%; justify-content: space-between; gap: 0; }
+  .site-nav a { font-size: 0.8125rem; }
   .hero { padding: var(--sp-7) 0; }
   .hero-grid { grid-template-columns: 1fr; }
 }
