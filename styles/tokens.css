@@ -114,6 +114,20 @@ img { max-width: 100%; display: block; }
 
 .big-link { font-weight: 700; text-decoration-thickness: 2px; }
 
+/* ---------- projects ---------- */
+.project { max-width: 640px; }
+.project-head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--sp-3); margin-bottom: var(--sp-3);
+}
+.project-head h3 { margin: 0; }
+.badge-coming {
+  font: 600 0.75rem var(--font); text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--charcoal);
+  background: var(--mist); border-radius: var(--radius);
+  padding: var(--sp-1) var(--sp-3); white-space: nowrap;
+}
+
 /* ---------- footer ---------- */
 .site-footer {
   background: var(--ink); color: var(--mist);
