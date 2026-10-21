@@ -87,7 +87,10 @@ Para piezas de comunicación, elegir una familia sans serif legible que acompañ
 - **Texto corrido:** sans serif regular, cómoda para lectura en pantalla e impresión.
 - **Énfasis:** usar cambios de peso o tamaño antes que efectos decorativos.
 
-Opciones de referencia para el sistema tipográfico: **Manrope**, **DM Sans** o **Montserrat**. Elegir una familia principal y limitar las combinaciones a dos familias tipográficas como máximo.
+Para piezas de comunicación y producto, la familia elegida es **Manrope**:
+una sola familia, sin segundas tipografías salvo la monoespaciada funcional
+que se indica en la sección 11. Las opciones DM Sans y Montserrat quedan
+descartadas para no diluir el sistema.
 
 **Jerarquía sugerida:**
 
@@ -116,6 +119,19 @@ La marca debe:
 - Mostrar criterio sin sonar distante.
 - Evitar promesas exageradas y jerga innecesaria.
 - Mantener una comunicación humana y directa.
+
+### Microcopy de interfaz
+
+En interfaces, además:
+
+- Voz activa y el botón dice qué pasa: «Guardar cambios», no «Enviar».
+- Un acción conserva su nombre en todo el flujo: quien pulsa
+  «Promocionar» lee «Promocionada».
+- Nombrar por lo que la persona entiende, no por cómo se construye el
+  sistema.
+- Los errores explican qué falló y cómo arreglarlo, sin disculpas ni
+  vaguedades; un estado vacío es una invitación a actuar, no un aviso
+  de mal humor.
 
 ## 8. Aplicaciones
 
@@ -146,6 +162,118 @@ La marca debe:
 - Conservar una copia maestra del logo y exportar versiones optimizadas para cada soporte.
 - Mantener, cuando estén disponibles, los archivos fuente y sus exportaciones en SVG, PDF y PNG.
 
+En interfaces interactivas, además:
+
+- Foco de teclado siempre visible (anillo negro de 2–3 px con
+  separación); nunca se elimina el outline sin sustituirlo.
+- Objetivos táctiles de 44 px como mínimo en controles.
+- Respetar `prefers-reduced-motion`: sin animaciones si el usuario lo
+  pide.
+- La paleta funcional de la sección 11 debe verificar AA (4,5:1) sobre
+  blanco tanto en el color como en su texto sobre los tintes.
+
 ## 10. Criterio de uso
 
 Ante cualquier aplicación nueva, priorizar esta pregunta: **¿el diseño conserva la expresividad del símbolo y la claridad del nombre?** Si la respuesta es sí, la pieza está alineada con la identidad de sanchesque studios.
+
+## 11. Interfaz de producto digital (dashboards y chat)
+
+Esta sección extiende el manual a las interfaces de producto de la casa
+(panel de gestión, chat por defecto). La web pública es la referencia
+editorial; el producto es la referencia operativa: misma paleta, misma
+tipografía, más densidad y decisiones explícitas de interacción.
+
+### Superficie base
+
+Blanco como fondo de trabajo; el negro queda para el borde inferior de
+marca (footer), momentos invertidos puntuales (login) y texto. El gris
+claro `#F2F2F2` para superficies secundarias, separadores y estados de
+reposo. El producto es light-first: no hay tema oscuro.
+
+### Tipografía de interfaz
+
+- Manrope única. Jerarquía por peso y tamaño, como en §5.
+- Números de métricas, tablas y contadores con cifras tabulares
+  (`font-feature-settings: "tnum"`), alineadas en columna.
+- Identificadores, versiones, claves y hashes: monoespaciada del
+  sistema (SF Mono, Menlo, Consolas) en tamaño pequeño, solo donde la
+  alineación carácter a carácter importa. Nunca como etiqueta
+  decorativa de estilo.
+- Tamaños mínimos: cuerpo 14 px, etiquetas 12 px; nada por debajo de
+  12 px.
+
+### Paleta funcional de estado
+
+Excepción funcional y documentada del monócromo, para legibilidad
+operativa. Valores recomendados (verificar AA en producción):
+
+| Estado | Valor | Tinte de fondo | Uso |
+|---|---|---|---|
+| Correcto | `#1B7A43` | `#EAF3ED` | operativo, completado |
+| Aviso | `#8A5300` | `#FBF2E4` | pendiente, revisar |
+| Peligro | `#B3261E` | `#F9E9E7` | error, fuera de servicio |
+
+Reglas: nunca es el único canal (siempre con icono y/o texto, §9);
+nunca como color de marca; los tiers y categorías no llevan color
+propio (distinción por texto: «Tier 1», «Tier 2»…).
+
+### Estados de interacción
+
+- **Hover:** elevar de blanco a gris claro (`#F2F2F2`), o de carbón a
+  negro en textos; sin sombras nuevas.
+- **Foco:** anillo negro de 2 px con 2 px de separación, idéntico al
+  de la web.
+- **Desactivado:** carbón al 40 % de opacidad, cursor no permitido,
+  sin sombras.
+- **Pulsado:** cambio instantáneo de fondo; sin rebotes.
+- Un solo border-radius por nivel jerárquico: radios generosos en
+  superficies (tarjetas, modales), moderados en controles.
+
+### Componentes
+
+- **Botones:** primario negro con texto blanco; secundario blanco con
+  borde carbón; ghost solo texto; peligro con el rojo funcional.
+  Nada de degradados ni sombras de color.
+- **Badges y etiquetas:** neutros por defecto (borde fino carbón sobre
+  blanco o gris claro); el color funcional solo codifica estado.
+- **Tablas:** densas, cabeceras en minúscula alineadas con el cuerpo,
+  filas separadas por gris claro; sin zebra.
+- **Formularios:** campos blancos con borde carbón fino; etiqueta
+  arriba, no flotante; mensajes de error bajo el campo, en rojo
+  funcional con texto explicativo.
+- **Modales:** superficie blanca, radio grande, cierre visible; el
+  fondo se atenúa con el gris claro semitransparente, sin blur.
+- **Notices y toasts:** franja sobre tinte funcional con icono y
+  frase; una sola por evento.
+- **Estados vacíos:** símbolo compacto en pequeño + una frase que
+  invite a actuar; nada de ilustraciones genéricas.
+
+### Shell del producto
+
+Navegación lateral (sidebar) blanca con borde gris claro; el logotipo
+entra en su **versión tipográfica** (§3) y el símbolo **compacto** como
+avatar de la aplicación, favicon y login. El símbolo no se repite por
+sección (§8). Migas de pan en la parte superior, en minúsculas. La
+marca del pie es negra con wordmark invertido.
+
+### Iconografía
+
+Material Symbols Outlined como set funcional del producto (pesos
+300–400, 16/20/24 px, negro o carbón). El símbolo de la marca no es un
+icono: solo aparece como identidad (avatar, login, pie).
+
+### Micro-movimiento
+
+El movimiento responde a la acción de la persona, no ocurre solo:
+transiciones de 120–180 ms con curva de salida suave en hover, apertura
+de modales y llegada de toasts. Sin entradas coreografiadas por
+sección, sin parallax, sin elementos flotando. `prefers-reduced-motion`
+desactiva todo lo anterior.
+
+### Chat por defecto
+
+El chat del huésped sin branding de cliente usa esta identidad: marco
+claro, burbujas del bot blancas con borde gris claro, burbujas del
+huésped negras con texto blanco, respuestas en Manrope. El paquete de
+branding del cliente (colores, logo, nombre) sigue sustituyendo estos
+valores cuando el hotel lo configura.
