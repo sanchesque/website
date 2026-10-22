@@ -1,0 +1,50 @@
+/* Generated from tokens/tokens.json by scripts/build_tokens.py. Do not edit. */
+
+/* base: brand primitives */
+:root {
+  --ink: #000000;
+  --paper: #FFFFFF;
+  --charcoal: #222222;
+  --mist: #F2F2F2;
+  --status-success: #1B7A43;
+  --status-success-tint: #EAF3ED;
+  --status-warning: #8A5300;
+  --status-warning-tint: #FBF2E4;
+  --status-danger: #B3261E;
+  --status-danger-tint: #F9E9E7;
+  --font: "Manrope", sans-serif;
+  --font-mono: "SF Mono", Menlo, Consolas, monospace;
+  --focus-ring: 0 0 0 2px #FFFFFF, 0 0 0 4px #000000;
+  --transition: 150ms cubic-bezier(0, 0, .2, 1);
+  --radius-control: 8px;
+  --radius-card: 16px;
+  --radius-surface: 20px;
+  --radius-pill: 9999px;
+  --tap-min: 44px;
+}
+
+/* semantic: product UI roles */
+:root {
+  --color-primary: #000000;
+  --color-primary-hover: #222222;
+  --color-primary-active: #000000;
+  --color-accent: #000000;
+  --color-accent-hover: #222222;
+  --surface-app: #FFFFFF;
+  --surface-card: #FFFFFF;
+  --surface-panel: #F2F2F2;
+  --surface-chat: #FFFFFF;
+  --surface-hover: rgba(242, 242, 242, .6);
+  --surface-input: #FFFFFF;
+  --text-primary: #222222;
+  --text-secondary: rgba(34, 34, 34, .65);
+  --text-brand: #000000;
+  --text-inverse: #FFFFFF;
+  --border-structural: #F2F2F2;
+  --border-variant: rgba(34, 34, 34, .35);
+  --font-display: "Manrope", sans-serif;
+  --font-text: "Manrope", sans-serif;
+  --shadow-overlay: 0 20px 35px -8px rgba(0, 0, 0, .18);
+  --overlay-fill: rgba(242, 242, 242, .8);
+  --overlay-blur: none;
+}

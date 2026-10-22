@@ -1,24 +1,25 @@
 # website — Sanchesque Studios
 
-Web de sanchesque studios, servida por GitHub Pages en
+Web de Sanchesque Studios, servida por GitHub Pages en
 [sanchesque.com](https://sanchesque.com/).
 
 ## Identidad visual
 
-Fuente de verdad: [`DESIGN.md`](DESIGN.md). Resumen operativo:
+Fuente de verdad: el repo `sanchesque/brand` (`DESIGN.md`, tokens y
+logos). Esta web solo sirve copias generadas. Resumen operativo:
 
-- **Marca:** sanchesque studios — estudio creativo digital con base en
+- **Marca:** Sanchesque Studios — estudio creativo digital con base en
   las Islas Canarias. Voz: creativa, clara, cercana y segura.
 - **Idea central:** creatividad con carácter propio.
 - **Logotipo:** símbolo orgánico que recuerda a una chola, o un skate
   saltando (el «skatechola» de la historia del nombre)
   + nombre en minúsculas. En esta web se usan:
-  - `img/sanchesque.svg` — **versión principal** (símbolo sobre el
+  - `img/brand/sanchesque-primary-black.svg` — **versión principal** (símbolo sobre el
     nombre), vectorial, como acento del hero. Nunca por debajo de 160 px
     de ancho en pantalla y sin alterar proporciones.
   - Versión **tipográfica** ("sanchesque" + "studios") en header y
     footer, la única permitida sin el símbolo.
-  - `img/sanchesque_ico.ico` / `sanchesque_ico.png` — favicon / avatar.
+  - `img/brand/favicon.svg` / `favicon.ico` / `apple-touch-icon.png` — favicons.
 - **Paleta (monocroma):** negro `#000000`, blanco `#FFFFFF`, gris
   carbón `#222222`, gris claro `#F2F2F2`. Sin acentos de color salvo
   decisión deliberada posterior.
@@ -29,17 +30,18 @@ Fuente de verdad: [`DESIGN.md`](DESIGN.md). Resumen operativo:
   "s"; contraste alto siempre; el símbolo aparece una vez como acento,
   no como patrón.
 
-**Copia maestra del logo:** carpeta `sanchesque-logos` (fuera de este
-repo) con todos los formatos: SVG, PNG (250/500 px), JPG, PDF, EPS,
-CorelDRAW, Sketch e iconos. Para cualquier uso nuevo, partir de ahí —
-no redibujar el símbolo.
+**Copia maestra del logo:** repo `sanchesque/brand`, carpeta
+`logos/sanchesque/` (SVG en contornos, PNG a 250/500/1000 px, favicons
+y los originales de 2022 en CDR, EPS, PDF y Sketch). Para cualquier uso
+nuevo, partir de ahí — no redibujar el símbolo.
 
 ## Estructura
 
-- `DESIGN.md` — manual de identidad (fuente de verdad del diseño)
 - `index.html` — home
-- `styles/tokens.css` — tokens derivados del manual (monocromo + Manrope)
-- `img/` — logotipo vectorial, PNG de respaldo y favicon
+- `styles/brand/sanchesque.css` — tokens de la marca (copia de `brand/dist/`, no editar)
+- `styles/site.css` — capa propia de la web: escala editorial y componentes
+- `img/brand/` — logo y favicons (copias de `brand/logos/`, no editar)
+- `scripts/sync_brand.sh` — refresca las copias desde `../brand`
 
 ## Despliegue
 

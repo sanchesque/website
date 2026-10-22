@@ -1,15 +1,10 @@
-/* sanchesque studios — design tokens (derived from DESIGN.md)
-   Monochrome base, Manrope as the single family, generous space. */
+/* Sanchesque Studios — site layout layer.
+   Colours (--ink, --paper, --charcoal, --mist) and --font come from
+   styles/brand/sanchesque.css, generated in sanchesque/brand
+   (DESIGN.md there). This file only holds the site's editorial scale. */
 
 :root {
-  /* color (DESIGN.md §4) */
-  --ink: #000000;          /* logo, headlines, high contrast */
-  --paper: #FFFFFF;        /* backgrounds, inverted logo */
-  --charcoal: #222222;     /* secondary text */
-  --mist: #F2F2F2;         /* surfaces, dividers, soft backgrounds */
-
-  /* type (§5): one family, weight-based hierarchy */
-  --font: "Manrope", "DM Sans", sans-serif;
+  /* type (brand DESIGN.md §5): one family, weight-based hierarchy */
   --fs-hero: clamp(2.6rem, 6vw, 4.5rem);
   --fs-h2: clamp(1.6rem, 3vw, 2.4rem);
   --fs-h3: 1.25rem;
