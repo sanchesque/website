@@ -17,4 +17,9 @@ mkdir -p "$SITE/fonts/manrope"
 cp "$BRAND/fonts/manrope/"* "$SITE/fonts/manrope/"
 # raster logo for structured data (search engines expect PNG/JPG)
 cp "$BRAND/logos/sanchesque/png/sanchesque-primary-black-500.png" "$SITE/img/brand/"
+# Tabaibi product page: logo, raster logo and social preview
+mkdir -p "$SITE/img/brand/tabaibi"
+cp "$BRAND/logos/tabaibi/svg/tabaibi-primary-color.svg" \
+   "$BRAND/logos/tabaibi/png/tabaibi-primary-color-500.png" "$SITE/img/brand/tabaibi/"
+cp "$BRAND/logos/tabaibi/favicon/og-image.png" "$SITE/img/brand/tabaibi/og-image.png"
 echo "synced brand files from $BRAND"
