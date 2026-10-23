@@ -70,16 +70,24 @@ img { max-width: 100%; display: block; }
 .site-nav { display: flex; gap: var(--sp-4); margin-left: auto; }
 /* language switch (brand DESIGN.md §13): always visible, next to the nav */
 .lang-switch {
+  position: relative;
   margin-left: var(--sp-4);
   font: 700 var(--fs-small) var(--font); text-decoration: none;
   color: var(--ink); letter-spacing: 0.04em;
   border: 1px solid var(--ink); border-radius: var(--radius);
   padding: 2px var(--sp-2);
 }
+/* invisible hit area: the pill stays small, the tap target is 44 px */
+.lang-switch::before {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  width: max(100%, var(--tap-min)); height: var(--tap-min);
+  transform: translate(-50%, -50%);
+}
 .lang-switch:hover { background: var(--ink); color: var(--paper); }
 .site-nav a {
+  display: inline-flex; align-items: center; min-height: var(--tap-min);
   font: 600 var(--fs-small) var(--font); text-decoration: none;
-  color: var(--charcoal); padding: var(--sp-1) 0;
+  color: var(--charcoal);
   border-bottom: 2px solid transparent;
 }
 .site-nav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
@@ -112,15 +120,15 @@ img { max-width: 100%; display: block; }
 .hero-logo {
   width: clamp(180px, 24vw, 280px); height: auto;
 }
-/* hero photo slot: placeholder until the real picture (a chola on the
-   sand) exists; swap the <figure> content for an <img> */
+/* hero photo slot: a square beach illustration until the real photo
+   exists; swap the <img> src when it does */
 .hero-photo {
-  margin: 0; width: clamp(220px, 30vw, 360px); aspect-ratio: 4 / 5;
+  margin: 0; width: clamp(220px, 30vw, 360px); aspect-ratio: 1 / 1;
   border-radius: var(--radius); overflow: hidden; background: var(--mist);
 }
 .hero-photo svg, .hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
 @media (max-width: 720px) {
-  .hero-photo { width: 100%; aspect-ratio: 4 / 3; }
+  .hero-photo { width: 100%; }
 }
 
 /* ---------- sections ---------- */
@@ -143,6 +151,21 @@ img { max-width: 100%; display: block; }
 .section:not(.section--alt) .card { border: 1px solid var(--mist); }
 
 .big-link { font-weight: 700; text-decoration-thickness: 2px; }
+
+/* buttons: primary action (ink) and secondary link, tap target >= 44 px */
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-4); margin-top: var(--sp-5); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: var(--tap-min); padding: 0 var(--sp-5);
+  font: 700 1rem var(--font); text-decoration: none;
+  border-radius: var(--radius-pill); transition: background var(--transition);
+}
+.btn--primary { background: var(--ink); color: var(--paper); }
+.btn--primary:hover { background: var(--charcoal); }
+.btn-link {
+  display: inline-flex; align-items: center; min-height: var(--tap-min);
+  font: 700 1rem var(--font); color: var(--ink); text-decoration-thickness: 2px;
+}
 .kicker {
   font: 600 var(--fs-small) var(--font); text-transform: uppercase;
   letter-spacing: 0.18em; color: var(--charcoal); margin-bottom: var(--sp-3);
@@ -151,8 +174,9 @@ img { max-width: 100%; display: block; }
 /* channels that are not live yet: visible but clearly unavailable */
 .soon {
   display: inline-flex; align-items: center; gap: var(--sp-2);
-  font: 600 var(--fs-small) var(--font); color: var(--charcoal);
-  opacity: 0.45; cursor: not-allowed; user-select: none;
+  min-height: var(--tap-min);
+  font: 600 var(--fs-small) var(--font); color: var(--text-secondary);
+  cursor: not-allowed; user-select: none;
 }
 .soon small { font: 500 0.75rem var(--font); letter-spacing: 0.08em; text-transform: uppercase; }
 .contact-list { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-4); }
@@ -195,5 +219,7 @@ img { max-width: 100%; display: block; }
   align-items: flex-end; gap: var(--sp-4);
 }
 .site-footer a { color: inherit; }
-.footer-links { display: flex; flex-wrap: wrap; gap: var(--sp-4); align-items: center; margin-bottom: var(--sp-2); }
-.site-footer .soon { color: var(--mist); opacity: 0.5; }
+.footer-links { display: flex; flex-wrap: wrap; gap: var(--sp-4); align-items: center; }
+.footer-links a { display: inline-flex; align-items: center; min-height: var(--tap-min); }
+/* mist at 65 %, the dark-background mirror of --text-secondary */
+.site-footer .soon { color: rgba(242, 242, 242, .65); }
