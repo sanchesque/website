@@ -7,8 +7,12 @@ set -eu
 BRAND=${1:-"$(dirname "$0")/../../brand"}
 SITE="$(dirname "$0")/.."
 cp "$BRAND/dist/sanchesque.css" "$SITE/styles/brand/sanchesque.css"
-for f in favicon.svg favicon.ico apple-touch-icon.png; do
+for f in favicon.svg favicon.ico apple-touch-icon.png og-image.png; do
   cp "$BRAND/logos/sanchesque/favicon/$f" "$SITE/img/brand/$f"
 done
-cp "$BRAND/logos/sanchesque/svg/sanchesque-primary-black.svg" "$SITE/img/brand/"
+for v in primary horizontal; do
+  cp "$BRAND/logos/sanchesque/svg/sanchesque-$v-black.svg" "$SITE/img/brand/"
+done
+# raster logo for structured data (search engines expect PNG/JPG)
+cp "$BRAND/logos/sanchesque/png/sanchesque-primary-black-500.png" "$SITE/img/brand/"
 echo "synced brand files from $BRAND"

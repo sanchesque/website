@@ -1,4 +1,4 @@
-/* Sanchesque Studios — site layout layer.
+/* Sanchesque Studios: site layout layer.
    Colours (--ink, --paper, --charcoal, --mist) and --font come from
    styles/brand/sanchesque.css, generated in sanchesque/brand
    (DESIGN.md there). This file only holds the site's editorial scale. */
@@ -55,6 +55,9 @@ img { max-width: 100%; display: block; }
   display: flex; align-items: center; justify-content: space-between;
   min-height: 72px;
 }
+/* header: horizontal logo, never below 160 px wide (brand DESIGN.md §3) */
+.site-logo { display: block; line-height: 0; }
+.site-logo img { height: 42px; width: auto; min-width: 160px; }
 .wordmark { text-decoration: none; }
 .wordmark strong {
   display: block; font: 700 1.4rem var(--font); color: var(--ink);
