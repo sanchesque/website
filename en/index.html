@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sanchesque Studios · digital creative studio</title>
-<meta name="description" content="Sanchesque Studios is a digital creative studio based in the Canary Islands. Software, design and digital projects with character.">
+<meta name="author" content="Sanchesque Studios">
+<title>Sanchesque Studios · digital creative studio in the Canary Islands</title>
+<meta name="description" content="Sanchesque Studios is a digital creative studio in the Canary Islands. Digital consulting, software, design and digital or hybrid events, with character.">
 <link rel="canonical" href="https://sanchesque.com/en/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Sanchesque Studios">
-<meta property="og:title" content="Sanchesque Studios · digital creative studio">
-<meta property="og:description" content="Sanchesque Studios is a digital creative studio based in the Canary Islands. Software, design and digital projects with character.">
+<meta property="og:title" content="Sanchesque Studios · digital creative studio in the Canary Islands">
+<meta property="og:description" content="Digital consulting, software, design and digital or hybrid events from the Canary Islands, with character.">
 <meta property="og:url" content="https://sanchesque.com/en/">
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="es_ES">
@@ -18,8 +19,8 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Sanchesque Studios logo">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sanchesque Studios · digital creative studio">
-<meta name="twitter:description" content="Sanchesque Studios is a digital creative studio based in the Canary Islands. Software, design and digital projects with character.">
+<meta name="twitter:title" content="Sanchesque Studios · digital creative studio in the Canary Islands">
+<meta name="twitter:description" content="Digital consulting, software, design and digital or hybrid events from the Canary Islands, with character.">
 <meta name="twitter:image" content="https://sanchesque.com/img/brand/og-image.png">
 <script type="application/ld+json">
 {
@@ -30,7 +31,7 @@
   "url": "https://sanchesque.com/",
   "logo": "https://sanchesque.com/img/brand/sanchesque-primary-black-500.png",
   "image": "https://sanchesque.com/img/brand/og-image.png",
-  "description": "Sanchesque Studios is a digital creative studio based in the Canary Islands. Software, design and digital projects with character.",
+  "description": "Digital creative studio in the Canary Islands: digital consulting, software, design and digital or hybrid events.",
   "slogan": "Creativity with character",
   "email": "hello@sanchesque.com",
   "address": {
@@ -38,7 +39,8 @@
     "addressRegion": "Canary Islands",
     "addressCountry": "ES"
   },
-  "areaServed": "ES"
+  "areaServed": "ES",
+  "knowsAbout": ["Digital consulting", "Software development", "Design", "Digital events"]
 }
 </script>
 <link rel="alternate" hreflang="es" href="https://sanchesque.com/">
@@ -47,9 +49,8 @@
 <link rel="icon" href="../img/brand/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="../img/brand/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../img/brand/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="../fonts/manrope/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../fonts/manrope/manrope.css">
 <link rel="stylesheet" href="../styles/brand/sanchesque.css">
 <link rel="stylesheet" href="../styles/site.css">
 </head>
@@ -64,10 +65,9 @@
            width="167" height="42">
     </a>
     <nav class="site-nav" aria-label="Main">
-      <a href="#studio">studio</a>
-      <a href="#goals">goals</a>
-      <a href="#story">story</a>
+      <a href="#services">services</a>
       <a href="#projects">projects</a>
+      <a href="#story">studio</a>
       <a href="#contact">contact</a>
     </nav>
     <a class="lang-switch" href="../" hreflang="es" lang="es"
@@ -81,42 +81,63 @@
       <div>
         <p class="kicker">digital creative studio · canary islands</p>
         <h1>Creativity<br>with character.</h1>
-        <p class="lead">We make digital work, from software to events and
-        design, with the islands' mark on every project.</p>
+        <p class="lead">Digital consulting, software, design and events,
+        with the islands' mark on every project.</p>
       </div>
-  <!-- Primary logo, vector and unaltered (brand DESIGN.md §3) -->
-      <img class="hero-logo" src="../img/brand/sanchesque-primary-black.svg"
-           alt="Sanchesque Studios" width="374" height="379">
+      <!-- Hero photo: a chola (flip-flop) on the sand. Placeholder until
+           the real photo exists; the symbol is already in the header. -->
+      <figure class="hero-photo">
+        <img src="../img/hero-placeholder.svg" alt="A flip-flop on the sand of a beach"
+             width="400" height="500">
+      </figure>
     </div>
   </section>
 
-  <section class="section" id="studio">
+  <section class="section" id="services">
     <div class="container">
-      <h2>What is Sanchesque Studios?</h2>
-      <p class="wide">A digital creative studio based in the Canary Islands.
-      We work across software development, design and fully digital
-      events.</p>
+      <h2>What we do.</h2>
+      <div class="grid grid--4">
+        <article class="card">
+          <h3>Digital consulting</h3>
+          <p>We help you work out which technology your business needs (and
+          which it doesn't), tidy up your processes and take the first steps
+          without drowning in jargon.</p>
+        </article>
+        <article class="card">
+          <h3>Software</h3>
+          <p>Bespoke products and tools, on the web and powered by AI, built
+          to last and to stay under your control.</p>
+        </article>
+        <article class="card">
+          <h3>Design</h3>
+          <p>Identity, interfaces and digital pieces made with judgement:
+          clear, careful and with a character of their own.</p>
+        </article>
+        <article class="card">
+          <h3>Digital or hybrid events</h3>
+          <p>Online events, or events that blend in-person and digital, from
+          the first idea to the live stream.</p>
+        </article>
+      </div>
     </div>
   </section>
 
-  <section class="section section--alt" id="goals">
+  <section class="section section--alt" id="projects">
     <div class="container">
-      <h2>What we're after.</h2>
-      <div class="grid grid--3">
-        <article class="card">
-          <h3>Local talent</h3>
-          <p>Put the islands' remarkable talent (including those who have
-          moved away) to work on products that travel the world from the
-          Canaries.</p>
-        </article>
-        <article class="card">
-          <h3>Visible potential</h3>
-          <p>Show how much value the islands can create.</p>
-        </article>
-        <article class="card">
-          <h3>Synergies</h3>
-          <p>Connect the people and companies that make up the Canary
-          Islands' digital scene.</p>
+      <h2>Projects.</h2>
+      <div class="grid">
+        <article class="card project">
+          <div class="project-head">
+            <h3>Tabaibi</h3>
+            <span class="badge-coming">coming soon</span>
+          </div>
+          <p>A digital concierge for hotels: an assistant that answers
+          guests instantly (opening hours, facilities, services) using only
+          the hotel's own verified information.</p>
+          <p>Its decision model is ultra-fast and runs locally, on low-cost
+          devices installed at the hotel itself, so each hotel controls its
+          assistant and its data from end to end.</p>
+          <p><a class="big-link" href="tabaibi/">Meet Tabaibi</a></p>
         </article>
       </div>
     </div>
@@ -146,35 +167,38 @@
     </div>
   </section>
 
-  <section class="section" id="projects">
+  <section class="section section--alt" id="goals">
     <div class="container">
-      <h2>Projects.</h2>
-      <div class="grid">
-        <article class="card project">
-          <div class="project-head">
-            <h3>Tabaibi</h3>
-            <span class="badge-coming">coming soon</span>
-          </div>
-          <p>A digital concierge for hotels: an assistant that answers
-          guests instantly (opening hours, facilities, services) using only
-          the hotel's own verified information.</p>
-          <p>Its decision model is ultra-fast and runs locally, on low-cost
-          devices installed at the hotel itself, so each hotel controls its
-          assistant and its data from end to end.</p>
-          <p class="small">In the works. If you run a hotel and want an
-          early look, write to
-          <a href="mailto:tabaibi@sanchesque.com">tabaibi@sanchesque.com</a>.</p>
+      <h2>What we're after.</h2>
+      <div class="grid grid--3">
+        <article class="card">
+          <h3>Local talent</h3>
+          <p>Put the islands' remarkable talent (including those who have
+          moved away) to work on products that travel the world from the
+          Canaries.</p>
+        </article>
+        <article class="card">
+          <h3>Visible potential</h3>
+          <p>Show how much value the islands can create.</p>
+        </article>
+        <article class="card">
+          <h3>Synergies</h3>
+          <p>Connect the people and companies that make up the Canary
+          Islands' digital scene.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section section--alt" id="contact">
+  <section class="section" id="contact">
     <div class="container">
       <h2>Let's talk.</h2>
       <p class="wide">Tell us what you're working on. We reply quickly,
       with concrete ideas:</p>
-      <p><a class="big-link" href="mailto:hello@sanchesque.com">hello@sanchesque.com</a></p>
+      <div class="contact-list">
+        <a class="big-link" href="mailto:hello@sanchesque.com">hello@sanchesque.com</a>
+        <span class="soon" aria-disabled="true">WhatsApp <small>coming soon</small></span>
+      </div>
     </div>
   </section>
 </main>
@@ -185,10 +209,18 @@
       <strong>sanchesque</strong>
       <span>studios</span>
     </a>
-    <p class="small">© Sanchesque Studios · <a href="https://sanchesque.com/en/">sanchesque.com</a></p>
+    <div>
+      <div class="footer-links">
+        <a href="legal/">Legal notice and privacy</a>
+        <span class="soon" aria-disabled="true">Instagram <small>coming soon</small></span>
+      </div>
+      <p class="small">© Sanchesque Studios · <a href="https://sanchesque.com/en/">sanchesque.com</a></p>
+    </div>
   </div>
 </footer>
 
 <script src="../scripts/lang.js"></script>
+<!-- GoatCounter: visit counter without cookies or personal data -->
+<script data-goatcounter="https://sanchesque.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

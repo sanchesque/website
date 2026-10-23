@@ -13,6 +13,8 @@ done
 for v in primary horizontal; do
   cp "$BRAND/logos/sanchesque/svg/sanchesque-$v-black.svg" "$SITE/img/brand/"
 done
+mkdir -p "$SITE/fonts/manrope"
+cp "$BRAND/fonts/manrope/"* "$SITE/fonts/manrope/"
 # raster logo for structured data (search engines expect PNG/JPG)
 cp "$BRAND/logos/sanchesque/png/sanchesque-primary-black-500.png" "$SITE/img/brand/"
 echo "synced brand files from $BRAND"

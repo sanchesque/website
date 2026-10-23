@@ -15,4 +15,32 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://sanchesque.com/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sanchesque.com/"/>
   </url>
+  <url>
+    <loc>https://sanchesque.com/tabaibi/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sanchesque.com/tabaibi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sanchesque.com/en/tabaibi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sanchesque.com/tabaibi/"/>
+  </url>
+  <url>
+    <loc>https://sanchesque.com/en/tabaibi/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sanchesque.com/tabaibi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sanchesque.com/en/tabaibi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sanchesque.com/tabaibi/"/>
+  </url>
+  <url>
+    <loc>https://sanchesque.com/legal/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sanchesque.com/legal/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sanchesque.com/en/legal/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sanchesque.com/legal/"/>
+  </url>
+  <url>
+    <loc>https://sanchesque.com/en/legal/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sanchesque.com/legal/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sanchesque.com/en/legal/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sanchesque.com/legal/"/>
+  </url>
 </urlset>

@@ -44,6 +44,17 @@ nuevo, partir de ahí y no redibujar el símbolo.
 - `index.html`: home en español (`/`)
 - `en/index.html`: home en inglés (`/en/`); se escribe pensando en quien
   lo lee en inglés, no se traduce palabra por palabra (brand DESIGN.md §13)
+- `tabaibi/` y `en/tabaibi/`: página del producto Tabaibi
+- `legal/` y `en/legal/`: aviso legal, privacidad y cookies. Los datos
+  del titular (razón social, NIF, domicilio) se añaden al constituir la
+  sociedad
+- `fonts/manrope/`: Manrope autoalojada (copia de `brand/fonts/`); la
+  web no carga nada de Google Fonts
+- `img/hero-placeholder.svg`: foto provisional del hero (una chola en
+  la arena) hasta tener la real
+- Canales en gris (`.soon`): WhatsApp e Instagram, hasta que existan
+- Estadísticas: GoatCounter, sin cookies, código `sanchesque`
+  (`https://sanchesque.goatcounter.com`)
 - `404.html`: página de error bilingüe que GitHub Pages sirve para
   cualquier ruta que no existe (rutas absolutas, `noindex`)
 - `robots.txt` y `sitemap.xml`: indexación; el sitemap declara las dos
