@@ -1,7 +1,8 @@
 # website — Sanchesque Studios
 
-Web de Sanchesque Studios, servida por GitHub Pages en
-[sanchesque.com](https://sanchesque.com/).
+Web de Sanchesque Studios, en español e inglés al mismo nivel, servida
+por GitHub Pages en [sanchesque.com](https://sanchesque.com/) y
+[sanchesque.com/en/](https://sanchesque.com/en/).
 
 ## Identidad visual
 
@@ -37,7 +38,11 @@ nuevo, partir de ahí — no redibujar el símbolo.
 
 ## Estructura
 
-- `index.html` — home
+- `index.html` — home en español (`/`)
+- `en/index.html` — home en inglés (`/en/`); se escribe pensando en quien
+  lo lee en inglés, no se traduce palabra por palabra (brand DESIGN.md §13)
+- `scripts/lang.js` — selector de idioma: recuerda la elección del
+  visitante y, si eligió inglés, lo lleva a `/en/` al volver a `/`
 - `styles/brand/sanchesque.css` — tokens de la marca (copia de `brand/dist/`, no editar)
 - `styles/site.css` — capa propia de la web: escala editorial y componentes
 - `img/brand/` — logo y favicons (copias de `brand/logos/`, no editar)

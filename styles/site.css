@@ -64,7 +64,16 @@ img { max-width: 100%; display: block; }
   display: block; font: 500 0.7rem var(--font); color: var(--charcoal);
   text-align: right; margin-top: -4px;
 }
-.site-nav { display: flex; gap: var(--sp-4); }
+.site-nav { display: flex; gap: var(--sp-4); margin-left: auto; }
+/* language switch (brand DESIGN.md §13): always visible, next to the nav */
+.lang-switch {
+  margin-left: var(--sp-4);
+  font: 700 var(--fs-small) var(--font); text-decoration: none;
+  color: var(--ink); letter-spacing: 0.04em;
+  border: 1px solid var(--ink); border-radius: var(--radius);
+  padding: 2px var(--sp-2);
+}
+.lang-switch:hover { background: var(--ink); color: var(--paper); }
 .site-nav a {
   font: 600 var(--fs-small) var(--font); text-decoration: none;
   color: var(--charcoal); padding: var(--sp-1) 0;
