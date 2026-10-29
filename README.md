@@ -52,7 +52,8 @@ nuevo, partir de ahí y no redibujar el símbolo.
   web no carga nada de Google Fonts
 - `img/hero-placeholder.svg`: foto provisional del hero (una chola en
   la arena) hasta tener la real
-- Canales en gris (`.soon`): WhatsApp e Instagram, hasta que existan
+- Canales en gris (`.soon`): WhatsApp, hasta que exista. Instagram
+  (`instagram.com/sanchesque`) va en el pie y en `sameAs`
 - Estadísticas: GoatCounter, sin cookies, código `sanchesque`
   (`https://sanchesque.goatcounter.com`)
 - `404.html`: página de error bilingüe que GitHub Pages sirve para
