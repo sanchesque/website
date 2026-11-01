@@ -22,4 +22,8 @@ mkdir -p "$SITE/img/brand/tabaibi"
 cp "$BRAND/logos/tabaibi/svg/tabaibi-primary-color.svg" \
    "$BRAND/logos/tabaibi/png/tabaibi-primary-color-500.png" "$SITE/img/brand/tabaibi/"
 cp "$BRAND/logos/tabaibi/favicon/og-image.png" "$SITE/img/brand/tabaibi/og-image.png"
+# email templates (brand/email/): mail clients block SVG, so they load these PNGs from here
+mkdir -p "$SITE/img/brand/email"
+cp "$BRAND/logos/sanchesque/png/sanchesque-horizontal-black-1000.png" \
+   "$BRAND/logos/tabaibi/png/tabaibi-horizontal-white-1000.png" "$SITE/img/brand/email/"
 echo "synced brand files from $BRAND"

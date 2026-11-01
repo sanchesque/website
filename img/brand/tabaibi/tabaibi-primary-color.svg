@@ -17,14 +17,12 @@
 <ellipse cx="337" cy="264" rx="102" ry="22" transform="rotate(-190 256 264)"/>
 </g>
 <!-- Receptionist behind the counter (the counter is also the pot) -->
-<g stroke="#26504E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-<path d="M294 256Q307 247 316 236Q321 228 326 225Q333 221 340 226" fill="none" stroke-width="18"/>
-<path d="M213 266V240Q213 223 230 223H280Q297 223 297 240V266Z" fill="#7FAB8E"/>
-<path d="M294 256Q307 247 316 236Q321 228 326 225Q333 221 340 226" fill="none" stroke="#7FAB8E" stroke-width="12"/>
+<g stroke="#26504E" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M213 266V240Q213 223 230 223H280Q297 223 297 240V266Z" fill="#26504E"/>
 <circle cx="256" cy="194" r="33" fill="#B7CEA4"/>
-<circle cx="245" cy="186" r="3.6" fill="#26504E" stroke="none"/>
-<circle cx="267" cy="186" r="3.6" fill="#26504E" stroke="none"/>
-<path d="M244 201Q256 212 268 201" fill="none" stroke-width="3.5"/>
+<circle cx="244" cy="187" r="5" fill="#26504E" stroke="none"/>
+<circle cx="268" cy="187" r="5" fill="#26504E" stroke="none"/>
+<path d="M243 202Q256 214 269 202" fill="none" stroke-width="5"/>
 <path d="M184 281L190 319Q191 326 198 326H314Q321 326 322 319L328 281Z" fill="#B7CEA4"/>
 <rect x="174" y="259" width="164" height="22" rx="6" fill="#B7CEA4"/>
 </g>
