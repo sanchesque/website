@@ -73,3 +73,10 @@ nuevo, partir de ahí y no redibujar el símbolo.
 
 GitHub Actions (`.github/workflows/pages.yml`) publica en Pages con cada
 push a `master`.
+
+## Derechos
+
+© Sanchesque Studios. Todos los derechos reservados: el código, los
+textos, las imágenes y la marca de este repo son públicos para consulta,
+pero no se pueden reutilizar sin permiso. La fuente Manrope tiene su
+propia licencia: `fonts/manrope/OFL.txt`.
