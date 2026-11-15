@@ -60,8 +60,9 @@ nuevo, partir de ahí y no redibujar el símbolo.
 - `img/hero-placeholder.svg`: foto provisional del hero (una chola en
   la arena) hasta tener la real
 - Canales del estudio en el pie y en `sameAs`: Instagram
-  (`instagram.com/sanchesque`), Telegram (`t.me/sanchesque`) y GIPHY
-  (`giphy.com/channel/sanchesque`). WhatsApp existe pero no se publica;
+  (`instagram.com/sanchesque`) y Telegram (`t.me/sanchesque`). GIPHY
+  (`giphy.com/channel/sanchesque`) vuelve cuando GIPHY apruebe el canal
+  de marca: hasta entonces da 404. WhatsApp existe pero no se publica;
   en el contacto sigue en gris (`.soon`)
 - Estadísticas: GoatCounter, sin cookies, código `sanchesque`
   (`https://sanchesque.goatcounter.com`)
