@@ -49,7 +49,9 @@ nuevo, partir de ahí y no redibujar el símbolo.
 - `garaticker/` y `en/garaticker/`: página de la app Garaticker, con la
   marca de Sanchesque (decisión 0011 del estudio). Su ayuda y su guía
   para artistas llegarán como copias generadas desde su repo
-  (`admin/website-plan.md` del estudio)
+  (`admin/website-plan.md` del estudio). La ayuda (`garaticker/help/`)
+  ya está; su privacidad y la guía para artistas, todavía no. Los
+  sitemaps de las guías van en `robots.txt`
 - `legal/` y `en/legal/`: aviso legal, privacidad y cookies. Los datos
   del titular (razón social, NIF, domicilio) se añaden al constituir la
   sociedad
@@ -75,6 +77,10 @@ nuevo, partir de ahí y no redibujar el símbolo.
 - `styles/site.css`: capa propia de la web: escala editorial y componentes
 - `img/brand/`: logos (principal y horizontal) y favicons (copias de `brand/logos/`, no editar)
 - `scripts/sync_brand.sh`: refresca las copias desde `../brand`
+- `scripts/sync_garaticker.sh help [artists]`: genera las guías en el
+  repo de Garaticker y copia la salida a `garaticker/` y
+  `en/garaticker/`; se niega a copiar borradores y nunca lee
+  `site/internal/`. Las copias no se editan aquí
 - `scripts/check_site.py`: antes de subir; busca rayas, enlaces internos
   rotos, páginas sin su versión en `/en/` y páginas que faltan en el
   sitemap

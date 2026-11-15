@@ -1,0 +1,71 @@
+/* Garaticker documentation: the Sanchesque brand (studio decision 0011) on top of the Zensical theme.
+   Colours and fonts come from assets/brand/ (copies of ~/Sanchesque/brand,
+   refreshed with scripts/sync_brand.py); this layer only maps them
+   to the theme's variables. Light only, no dark scheme (brand/DESIGN.md
+   §11). Monochrome: the accent is ink, never a colour for
+   states (§4). */
+
+:root, [data-md-color-scheme="default"] {
+  --md-primary-fg-color: var(--paper);
+  --md-primary-fg-color--light: var(--mist);
+  --md-primary-fg-color--dark: var(--mist);
+  --md-primary-bg-color: var(--ink);
+  --md-primary-bg-color--light: var(--text-secondary);
+  --md-accent-fg-color: var(--ink);
+  --md-accent-fg-color--transparent: var(--mist);
+  --md-accent-bg-color: var(--paper);
+  --md-default-fg-color: var(--charcoal);
+  --md-default-fg-color--light: var(--text-secondary);
+  --md-default-fg-color--lighter: var(--border-variant);
+  --md-default-fg-color--lightest: var(--mist);
+  --md-default-bg-color: var(--paper);
+  --md-typeset-color: var(--charcoal);
+  --md-typeset-a-color: var(--ink);
+  --md-code-bg-color: var(--mist);
+  --md-code-fg-color: var(--charcoal);
+  --md-footer-bg-color: var(--ink);
+  --md-footer-bg-color--dark: var(--ink);
+  --md-text-font: "Manrope";
+  --md-text-font-family: var(--font);
+  --md-code-font-family: var(--font-mono);
+}
+
+body, input { font-family: var(--font); font-feature-settings: "tnum"; }
+
+.md-header { border-bottom: 1px solid var(--mist); box-shadow: none; }
+.md-header__button.md-logo img { height: 28px; border-radius: 6px; }
+
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4 {
+  color: var(--ink); font-weight: 700; letter-spacing: 0;
+}
+.md-typeset a { text-decoration: underline; text-underline-offset: 2px; }
+.md-typeset a:hover, .md-nav__link:hover,
+.md-nav__link--active, .md-nav__item .md-nav__link--active {
+  color: var(--ink);
+}
+
+/* tables: header in mist, no zebra, rows split by mist (§11) */
+.md-typeset table:not([class]) { border: 1px solid var(--mist); box-shadow: none; }
+.md-typeset table:not([class]) th { background: var(--mist); color: var(--ink); }
+.md-typeset table:not([class]) tr:hover { background: none; box-shadow: none; }
+
+.md-typeset code { border-radius: 4px; }
+.md-footer-meta { background: var(--ink); }
+/* footer text on black: white, not the theme's grey (contrast AA) */
+.md-footer-meta, .md-footer-meta a, .md-copyright, .md-copyright__highlight,
+html .md-footer-meta.md-typeset a:not(:focus, :hover) {
+  color: var(--paper);
+}
+
+.studio-signature { display: block; width: max-content; margin-bottom: .5rem; }
+.studio-signature img { display: block; height: 2.75rem; width: auto; }
+
+/* focus: 2 px black ring with 2 px of white, as on the web (§11) */
+:focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* monochrome: the active item stands out by weight, not by colour */
+.md-nav__link--active { font-weight: 700; }

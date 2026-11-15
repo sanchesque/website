@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://sanchesque.com/sitemap.xml
+Sitemap: https://sanchesque.com/garaticker/help/sitemap.xml
+Sitemap: https://sanchesque.com/en/garaticker/help/sitemap.xml

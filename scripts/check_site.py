@@ -11,6 +11,8 @@ from pathlib import Path
 SITE = Path(__file__).resolve().parent.parent
 SKIP = {"fonts", ".git", ".github"}
 LINK = re.compile(r'(?:href|src)="([^"#?]*)')
+# copies built by Zensical in the product repos: they ship their own sitemap
+GENERATED = ("garaticker/help", "garaticker/artists")
 
 pages = sorted(p for p in SITE.rglob("*.html") if not SKIP & set(p.relative_to(SITE).parts))
 errors = []
@@ -34,7 +36,7 @@ for page in pages:
 sitemap = (SITE / "sitemap.xml").read_text(encoding="utf-8")
 for page in pages:
     rel = page.relative_to(SITE)
-    if rel.name == "404.html":
+    if rel.name == "404.html" or any(g in str(rel) for g in GENERATED):
         continue
     url = "https://sanchesque.com/" + str(rel.parent).replace(".", "").strip("/")
     url = url.rstrip("/") + "/"
