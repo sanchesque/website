@@ -44,7 +44,12 @@ nuevo, partir de ahí y no redibujar el símbolo.
 - `index.html`: home en español (`/`)
 - `en/index.html`: home en inglés (`/en/`); se escribe pensando en quien
   lo lee en inglés, no se traduce palabra por palabra (brand DESIGN.md §13)
-- `tabaibi/` y `en/tabaibi/`: página del producto Tabaibi
+- `tabaibi/` y `en/tabaibi/`: página del producto Tabaibi. Su URL no
+  cambia nunca: la enlaza el «powered by tabaibi» de todos los chats
+- `garaticker/` y `en/garaticker/`: página de la app Garaticker, con la
+  marca de Sanchesque (decisión 0011 del estudio). Su ayuda y su guía
+  para artistas llegarán como copias generadas desde su repo
+  (`admin/website-plan.md` del estudio)
 - `legal/` y `en/legal/`: aviso legal, privacidad y cookies. Los datos
   del titular (razón social, NIF, domicilio) se añaden al constituir la
   sociedad
@@ -52,8 +57,10 @@ nuevo, partir de ahí y no redibujar el símbolo.
   web no carga nada de Google Fonts
 - `img/hero-placeholder.svg`: foto provisional del hero (una chola en
   la arena) hasta tener la real
-- Canales en gris (`.soon`): WhatsApp, hasta que exista. Instagram
-  (`instagram.com/sanchesque`) va en el pie y en `sameAs`
+- Canales del estudio en el pie y en `sameAs`: Instagram
+  (`instagram.com/sanchesque`), Telegram (`t.me/sanchesque`) y GIPHY
+  (`giphy.com/channel/sanchesque`). WhatsApp existe pero no se publica;
+  en el contacto sigue en gris (`.soon`)
 - Estadísticas: GoatCounter, sin cookies, código `sanchesque`
   (`https://sanchesque.goatcounter.com`)
 - `404.html`: página de error bilingüe que GitHub Pages sirve para
@@ -68,6 +75,9 @@ nuevo, partir de ahí y no redibujar el símbolo.
 - `styles/site.css`: capa propia de la web: escala editorial y componentes
 - `img/brand/`: logos (principal y horizontal) y favicons (copias de `brand/logos/`, no editar)
 - `scripts/sync_brand.sh`: refresca las copias desde `../brand`
+- `scripts/check_site.py`: antes de subir; busca rayas, enlaces internos
+  rotos, páginas sin su versión en `/en/` y páginas que faltan en el
+  sitemap
 
 ## Despliegue
 
