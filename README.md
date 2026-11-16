@@ -88,8 +88,26 @@ nuevo, partir de ahí y no redibujar el símbolo.
 
 ## Despliegue
 
-GitHub Actions (`.github/workflows/pages.yml`) publica en Pages con cada
-push a `master`.
+Hoy: GitHub Actions (`.github/workflows/pages.yml`) publica en Pages con
+cada push a `master`.
+
+Preparado para Cloudflare Workers con archivos estáticos (decisión 0014),
+sin script de Worker:
+
+- `wrangler.jsonc`: nombre `sanchesque-website`, carpeta `.`, barra final
+  automática y `404.html` para lo que no existe. Sin secretos.
+- `.assetsignore`: lo que no se publica (README, scripts de Python y
+  shell, `.github/`, la propia configuración).
+- `_headers`: HSTS sin subdominios (el panel y los chats van en otros
+  proveedores), `nosniff`, `Referrer-Policy`, sin marcos, y caché larga
+  de fuentes e imágenes.
+- Prueba local: `npx wrangler@4.156.0 dev --port 8788`.
+
+El paso real (paso 8 de `admin/domains-hosting-plan.md`) va después del
+cambio de DNS: conectar el repo con Workers Builds, probar la URL de
+vista previa, añadir el dominio propio, la regla que redirige `www` a
+`sanchesque.com`, actualizar la página legal y retirar la Action de
+Pages.
 
 ## Derechos
 

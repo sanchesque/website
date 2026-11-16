@@ -1,0 +1,16 @@
+// Static site on Cloudflare Workers (decision 0014). No Worker script:
+// Cloudflare serves the files in this folder as they are.
+// Routes and the custom domain are added after the DNS move (D-05),
+// see admin/domains-hosting-plan.md §3 and §5, step 8.
+{
+  "name": "sanchesque-website",
+  "compatibility_date": "2026-10-29",
+  "assets": {
+    "directory": ".",
+    // /tabaibi redirects to /tabaibi/, as on GitHub Pages
+    "html_handling": "auto-trailing-slash",
+    // unknown paths get the bilingual 404.html with status 404
+    "not_found_handling": "404-page"
+  },
+  "observability": { "enabled": false }
+}
