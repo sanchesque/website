@@ -21,6 +21,12 @@
   --radius-surface: 20px;
   --radius-pill: 9999px;
   --tap-min: 44px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
 }
 
 /* semantic: product UI roles */
@@ -38,6 +44,7 @@
   --surface-input: #FFFFFF;
   --text-primary: #222222;
   --text-secondary: rgba(34, 34, 34, .65);
+  --text-disabled: rgba(34, 34, 34, .4);
   --text-brand: #000000;
   --text-inverse: #FFFFFF;
   --border-structural: #F2F2F2;
