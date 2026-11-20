@@ -46,6 +46,18 @@ completo está en `admin/web-backlog.md`; aquí solo lo que está en marcha.
   copia `_headers` y se quita `.assetsignore`. Probado con `wrangler dev`:
   páginas 200, `/tabaibi` 307 a `/tabaibi/`, `README.md`, `HANDOFF.md`,
   `_headers` y scripts 404, cabeceras y caché de fuentes bien.
+- 2026-11-20 · Claude: Worker `sanchesque-website` creado con
+  `wrangler deploy` desde local (sí de Alex; la importación del panel
+  fallaba con «This Worker does not exist»). Vista previa:
+  `https://sanchesque-website.sanchesque-studios.workers.dev`, versión
+  `055dad29`. Mismo resultado que en local: páginas 200, internos 404,
+  404 bilingüe, cabeceras y cachés bien. `wrangler login` queda con
+  sesión OAuth en este Mac (`cloudflare-sticker@sanchesque.com`).
+- 2026-11-20 · Claude: Workers daba 307 en `/carpeta` → `/carpeta/`;
+  Alex pidió 301 como Pages. `build_site.sh` genera `_site/_redirects`
+  con un 301 por cada carpeta con `index.html` (21 reglas, se actualiza
+  solo). Probado con `wrangler dev`: 301 con la consulta conservada,
+  `/_redirects` da 404.
 
 ## Falta
 
@@ -68,6 +80,8 @@ completo está en `admin/web-backlog.md`; aquí solo lo que está en marcha.
 
 ## Preguntas abiertas
 
+- 2026-11-20, para Alex: conectar el repo en el Worker (Settings →
+  Build → Connect, rama `cloudflare-workers`); el sí de Alex está dado.
 - Pendiente de Alex desde el 17-nov: volver a activar la protección de
   dominio en IONOS y revocar la clave de su API (Gestión dice que se va
   a revocar; el paso 8 no la necesita; el DS de DNSSEC del paso 9 irá
