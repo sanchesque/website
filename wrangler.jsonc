@@ -1,10 +1,16 @@
 // Static site on Cloudflare Workers (decision 0014). No Worker script:
 // Cloudflare serves _site/, built by scripts/build_site.sh (an allowlist).
-// Routes and the custom domain are added after the DNS move (D-05),
-// see admin/domains-hosting-plan.md §3 and §5, step 8.
+// Custom domains for the apex and www (D-05 step 8); www is redirected
+// to the apex by a zone redirect rule before it reaches this Worker.
 {
   "name": "sanchesque-website",
   "compatibility_date": "2026-10-29",
+  "routes": [
+    { "pattern": "sanchesque.com", "custom_domain": true },
+    { "pattern": "www.sanchesque.com", "custom_domain": true }
+  ],
+  // keep the workers.dev preview URL
+  "workers_dev": true,
   "assets": {
     "directory": "./_site",
     // /tabaibi redirects to /tabaibi/, as on GitHub Pages

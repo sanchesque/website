@@ -68,6 +68,18 @@ completo está en `admin/web-backlog.md`; aquí solo lo que está en marcha.
   `speculationrules.json`); el `style=` de Garaticker pasa a la clase
   `.spaced`. Probado con `wrangler dev`: cabeceras por ruta bien y sin
   avisos de CSP en las páginas propias. El punto 16 se deja: basta la CSP.
+- 2026-11-20 · Claude, con el sí de Alex: **`sanchesque.com` servido por
+  Workers.** Always Use HTTPS activado; regla de redirección `www` →
+  apex (301, ruleset `5f2b99cf…`); borrados los 8 A/AAAA de GitHub Pages
+  y el CNAME de `www`; dominios del Worker `sanchesque.com` y
+  `www.sanchesque.com` (también en `wrangler.jsonc`, con `workers_dev`).
+  Comprobado por Cloudflare: páginas 200, `/tabaibi` 301, internos 404,
+  `http://` y `www` 301 a `https://sanchesque.com` con la consulta,
+  cabeceras nuevas, `server: cloudflare`; MX y panel de Tabaibi sin
+  cambios. Vuelta atrás: quitar los dos dominios del Worker y volver a
+  crear `sanchesque.com` A 185.199.108-111.153, AAAA
+  2606:50c0:8000-8003::153 y `www` CNAME `sanchesque.github.io` (TTL
+  3600, sin proxy).
 - 2026-11-20 · Alex: repo conectado en Workers Builds (rama
   `cloudflare-workers`, `sh scripts/build_site.sh`, `npx wrangler
   deploy`). Primera compilación de `9ad7463`: success. Previews activadas
@@ -86,7 +98,7 @@ completo está en `admin/web-backlog.md`; aquí solo lo que está en marcha.
   `sh scripts/build_site.sh`, despliegue `npx wrangler deploy`) y URL de
   vista previa; comprobar
   307 o 301 y las cabeceras; dominio propio y regla de `www`; página
-  legal (es y en); Crawler Hints; puntos 12 a 16 de la revisión (CSP
+  legal (es y en) hecho; Crawler Hints; puntos 12 a 16 de la revisión (CSP
   primero en modo informe); al final, fusionar la rama y retirar la
   Action de Pages. Cada escritura en Cloudflare, con el sí de Alex.
 - [ ] DNS del panel de Tabaibi (Entrada del 20-nov, plan
