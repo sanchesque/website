@@ -30,13 +30,15 @@ completo está en `admin/web-backlog.md`; aquí solo lo que está en marcha.
   Correo comprobado en los dos sentidos.
 - 2026-11-19 · Claude: vigilancia del DNS cerrada: zona activa, los tres
   resolvedores públicos dan Cloudflare, web y panel bien.
-- 2026-11-20 · Claude: este traspaso (`8f267c0`).
+- 2026-11-20 · Claude: este traspaso (en `1b82d61`).
 - 2026-11-20 · Claude: la Action de Pages publica solo una lista cerrada
   de archivos (`scripts/build_site.sh` → `_site/`, revisado con
   `check_site.py _site`); `README.md`, `HANDOFF.md` y los scripts
-  internos dejan de publicarse. Alex lo pidió vía Gestión. Probado en
-  local; falta el push con el sí de Alex y comprobar después que
-  `/README.md` y `/HANDOFF.md` dan 404 y la portada 200.
+  internos dejan de publicarse. Alex lo pidió vía Gestión. Subido con el
+  sí de Alex en `1b82d61` (aplastado con el traspaso) y comprobado en
+  vivo: `/README.md`, `/HANDOFF.md` y `/scripts/check_site.py` dan 404;
+  portada, `/en/`, `/legal/`, `/garaticker/help/`, `lang.js`, fuentes,
+  imágenes, `robots.txt` y `sitemap.xml` dan 200.
 
 ## Falta
 
