@@ -11,10 +11,9 @@ completo está en `admin/web-backlog.md`; aquí solo lo que está en marcha.
   comprueba con `python3 scripts/check_site.py` y mirando la web
   publicada.
 - **Turno:** Claude (desde 2026-11-20)
-- **Rama:** `master` para la web publicada; `cloudflare-workers` para el
-  paso a Workers.
-- **Archivos en uso:** `wrangler.jsonc`, `_headers` y
-  `scripts/build_site.sh` en `cloudflare-workers` (paso 8 en marcha).
+- **Rama:** `master` (push = publicar en sanchesque.com por Workers
+  Builds). `cloudflare-workers` queda fusionada.
+- **Archivos en uso:** ninguno ahora mismo.
 
 ## Hecho
 
@@ -80,6 +79,11 @@ completo está en `admin/web-backlog.md`; aquí solo lo que está en marcha.
   crear `sanchesque.com` A 185.199.108-111.153, AAAA
   2606:50c0:8000-8003::153 y `www` CNAME `sanchesque.github.io` (TTL
   3600, sin proxy).
+- 2026-11-20 · Claude, con el sí de Alex: `cloudflare-workers`
+  fusionada en `master`; Action de Pages retirada; Workers Builds
+  compila `master` con `sh scripts/build_site.sh && python3
+  scripts/check_site.py _site`. GitHub Pages sigue activo con la última
+  versión (no lo ve nadie): se desactiva en el paso 9.
 - 2026-11-20 · Alex: repo conectado en Workers Builds (rama
   `cloudflare-workers`, `sh scripts/build_site.sh`, `npx wrangler
   deploy`). Primera compilación de `9ad7463`: success. Previews activadas
@@ -94,13 +98,12 @@ completo está en `admin/web-backlog.md`; aquí solo lo que está en marcha.
   sí de Alex.
 - [ ] Punto 11: mirar en GoatCounter si `lang.js` cuenta dos visitas al
   redirigir a `/en/`; si se confirma, proponer el arreglo a Gestión.
-- [ ] Paso 8 (Workers): Workers Builds (compilación
-  `sh scripts/build_site.sh`, despliegue `npx wrangler deploy`) y URL de
-  vista previa; comprobar
-  307 o 301 y las cabeceras; dominio propio y regla de `www`; página
-  legal (es y en) hecho; Crawler Hints; puntos 12 a 16 de la revisión (CSP
-  primero en modo informe); al final, fusionar la rama y retirar la
-  Action de Pages. Cada escritura en Cloudflare, con el sí de Alex.
+- [ ] CSP: tras unos días sin avisos en la consola, pasar
+  `Content-Security-Policy-Report-Only` a `Content-Security-Policy` en
+  `_headers` (con el sí de Alex). Punto 16 (GoatCounter) descartado por
+  ahora: basta la CSP.
+- [ ] Paso 9 (Alex, una o dos semanas después del 20-nov): desactivar
+  GitHub Pages sin borrar su TXT y activar DNSSEC.
 - [ ] DNS del panel de Tabaibi (Entrada del 20-nov, plan
   `projects/tabaibi/code/docs/panel-to-contabo-plan.md`): paso 0, TTL de
   `tabaibi-panel.sanchesque.com` a 60 s una semana antes; paso 6, CNAME

@@ -1,5 +1,5 @@
 #!/bin/sh
-# Copy the published files, and only those, into _site/ (served by Pages and by Workers).
+# Copy the published files, and only those, into _site/, the only folder Workers serves.
 # An allowlist on purpose: a new internal file (README, HANDOFF, AGENTS...)
 # stays private unless it is added here.
 #   scripts/build_site.sh

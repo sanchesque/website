@@ -1,7 +1,7 @@
 # website · Sanchesque Studios
 
 Web de Sanchesque Studios, en español e inglés al mismo nivel, servida
-por GitHub Pages en [sanchesque.com](https://sanchesque.com/) y
+por Cloudflare Workers en [sanchesque.com](https://sanchesque.com/) y
 [sanchesque.com/en/](https://sanchesque.com/en/).
 
 ## Identidad visual
@@ -66,7 +66,7 @@ nuevo, partir de ahí y no redibujar el símbolo.
   en el contacto sigue en gris (`.soon`)
 - Estadísticas: GoatCounter, sin cookies, código `sanchesque`
   (`https://sanchesque.goatcounter.com`)
-- `404.html`: página de error bilingüe que GitHub Pages sirve para
+- `404.html`: página de error bilingüe que Workers sirve para
   cualquier ruta que no existe (rutas absolutas, `noindex`)
 - `robots.txt` y `sitemap.xml`: indexación; el sitemap declara las dos
   versiones con `hreflang`. Al añadir una página, se añade aquí
@@ -91,26 +91,24 @@ nuevo, partir de ahí y no redibujar el símbolo.
 
 ## Despliegue
 
-Hoy: GitHub Actions (`.github/workflows/pages.yml`) publica en Pages con
-cada push a `master`: construye `_site/` con `scripts/build_site.sh`, lo
-revisa con `check_site.py _site` y sube solo esa carpeta.
+Cloudflare Workers con archivos estáticos (decisión 0014), sin script de
+Worker. Workers Builds publica con cada push a `master`: construye
+`_site/` con `scripts/build_site.sh`, lo revisa con
+`check_site.py _site` y despliega con `npx wrangler deploy`. Solo se
+sirve `_site/`.
 
-Preparado para Cloudflare Workers con archivos estáticos (decisión 0014),
-sin script de Worker, sirviendo la misma carpeta `_site/`:
-
-- `wrangler.jsonc`: nombre `sanchesque-website`, carpeta `_site`, barra
-  final automática y `404.html` para lo que no existe. Sin secretos.
-- Workers Builds: comando de compilación `sh scripts/build_site.sh`,
-  despliegue `npx wrangler deploy`.
+- `wrangler.jsonc`: nombre `sanchesque-website`, carpeta `_site`,
+  dominios `sanchesque.com` y `www.sanchesque.com` (una regla de la zona
+  manda `www` a `sanchesque.com` con un 301) y la vista previa en
+  `sanchesque-website.sanchesque-studios.workers.dev`. Sin secretos.
 - `_headers`: HSTS sin subdominios (el panel y los chats van en otros
-  proveedores), `nosniff`, `Referrer-Policy`, sin marcos, fuentes a 30
-  días e imágenes a 7. `build_site.sh` lo copia a `_site/`.
+  proveedores), `nosniff`, `Referrer-Policy`, CSP (en modo informe al
+  principio), aislamiento, reglas de especulación, fuentes a 30 días e
+  imágenes a 7. `build_site.sh` lo copia a `_site/` junto con
+  `speculationrules.json` y genera `_redirects` (301 de `/carpeta` a
+  `/carpeta/`).
+- Las demás ramas generan vistas previas en workers.dev.
 - Prueba local: `sh scripts/build_site.sh && npx wrangler@4.156.0 dev --port 8788`.
-
-Quedan del paso 8 de `admin/domains-hosting-plan.md`: conectar el repo
-con Workers Builds, probar la URL de vista previa, añadir el dominio
-propio, la regla que redirige `www` a `sanchesque.com`, actualizar la
-página legal y retirar la Action de Pages.
 
 ## Derechos
 
