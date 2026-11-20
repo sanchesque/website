@@ -2,14 +2,16 @@
 """Pre-push checks for the site: no em dashes, no broken internal links,
 every Spanish page has its /en/ twin, and every page is in the sitemap.
 
-    python3 scripts/check_site.py      (exit code 1 if anything fails)
+    python3 scripts/check_site.py [dir]   (default: the repo; exit 1 on failure)
+
+Run it on _site/ after scripts/build_site.sh to check what Pages publishes.
 """
 import re
 import sys
 from pathlib import Path
 
-SITE = Path(__file__).resolve().parent.parent
-SKIP = {"fonts", ".git", ".github"}
+SITE = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent
+SKIP = {"fonts", ".git", ".github", "_site"}
 LINK = re.compile(r'(?:href|src)="([^"#?]*)')
 # copies built by Zensical in the product repos: they ship their own sitemap
 GENERATED = ("garaticker/help", "garaticker/artists")
@@ -17,7 +19,7 @@ GENERATED = ("garaticker/help", "garaticker/artists")
 pages = sorted(p for p in SITE.rglob("*.html") if not SKIP & set(p.relative_to(SITE).parts))
 errors = []
 
-for path in pages + [SITE / "README.md", SITE / "sitemap.xml"]:
+for path in pages + [p for p in (SITE / "README.md", SITE / "sitemap.xml") if p.exists()]:
     for n, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
         if "—" in line:
             errors.append(f"{path.relative_to(SITE)}:{n}: em dash")
