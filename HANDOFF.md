@@ -110,7 +110,13 @@ completo está en `admin/web-backlog.md`; aquí solo lo que está en marcha.
   (hoy a `alex-s8yt.dns.northflank.app`) por A a `89.117.63.57` sin
   proxy. Nada hasta que Tabaibi avise de cada paso
   (local_ebf6f7cf-64b2-4fdc-a05f-04c9d97978f5) y con el sí de Alex aquí.
-  Vuelta atrás: el CNAME anterior.
+  Vuelta atrás: el CNAME anterior. 20-nov, a petición de Tabaibi y con
+  el sí de Alex: A temporal `tabaibi-panel-new` → `89.117.63.57`, sin
+  proxy, TTL 60 (id `330e009f…`); borrarlo al acabar la migración.
+  20-nov, tiempo 2 (sí de Alex, aviso de Tabaibi): CNAME borrado y
+  `tabaibi-panel` A → `89.117.63.57`, sin proxy, TTL 60. Vuelta atrás:
+  borrar el A y crear CNAME
+  `tabaibi-panel.sanchesque.com.alex-s8yt.dns.northflank.app`.
 - [ ] 23-nov: revisar indexación en Search Console («Páginas», y que no
   haya errores de DNS) y en el Site Explorer de Bing.
 - [ ] Cuando GIPHY apruebe el canal de marca (D-07): volver a poner sus
