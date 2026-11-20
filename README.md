@@ -84,30 +84,33 @@ nuevo, partir de ahí y no redibujar el símbolo.
   `site/internal/`. Las copias no se editan aquí
 - `scripts/check_site.py`: antes de subir; busca rayas, enlaces internos
   rotos, páginas sin su versión en `/en/` y páginas que faltan en el
-  sitemap
+  sitemap. Con `_site` como argumento revisa lo que se publica
+- `scripts/build_site.sh`: copia en `_site/` solo lo que se publica (una
+  lista cerrada). Lo usa la Action; `README.md`, `HANDOFF.md` y los
+  scripts internos no salen. Un archivo público nuevo se añade aquí
 
 ## Despliegue
 
 Hoy: GitHub Actions (`.github/workflows/pages.yml`) publica en Pages con
-cada push a `master`.
+cada push a `master`: construye `_site/` con `scripts/build_site.sh`, lo
+revisa con `check_site.py _site` y sube solo esa carpeta.
 
 Preparado para Cloudflare Workers con archivos estáticos (decisión 0014),
-sin script de Worker:
+sin script de Worker, sirviendo la misma carpeta `_site/`:
 
-- `wrangler.jsonc`: nombre `sanchesque-website`, carpeta `.`, barra final
-  automática y `404.html` para lo que no existe. Sin secretos.
-- `.assetsignore`: lo que no se publica (README, scripts de Python y
-  shell, `.github/`, la propia configuración).
+- `wrangler.jsonc`: nombre `sanchesque-website`, carpeta `_site`, barra
+  final automática y `404.html` para lo que no existe. Sin secretos.
+- Workers Builds: comando de compilación `sh scripts/build_site.sh`,
+  despliegue `npx wrangler deploy`.
 - `_headers`: HSTS sin subdominios (el panel y los chats van en otros
-  proveedores), `nosniff`, `Referrer-Policy`, sin marcos, y caché larga
-  de fuentes e imágenes.
-- Prueba local: `npx wrangler@4.156.0 dev --port 8788`.
+  proveedores), `nosniff`, `Referrer-Policy`, sin marcos, fuentes a 30
+  días e imágenes a 7. `build_site.sh` lo copia a `_site/`.
+- Prueba local: `sh scripts/build_site.sh && npx wrangler@4.156.0 dev --port 8788`.
 
-El paso real (paso 8 de `admin/domains-hosting-plan.md`) va después del
-cambio de DNS: conectar el repo con Workers Builds, probar la URL de
-vista previa, añadir el dominio propio, la regla que redirige `www` a
-`sanchesque.com`, actualizar la página legal y retirar la Action de
-Pages.
+Quedan del paso 8 de `admin/domains-hosting-plan.md`: conectar el repo
+con Workers Builds, probar la URL de vista previa, añadir el dominio
+propio, la regla que redirige `www` a `sanchesque.com`, actualizar la
+página legal y retirar la Action de Pages.
 
 ## Derechos
 
