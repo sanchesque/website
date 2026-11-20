@@ -44,6 +44,7 @@ img { max-width: 100%; display: block; }
 .container { max-width: var(--content); margin: 0 auto; padding: 0 var(--sp-4); }
 .container.narrow { max-width: 720px; }
 .wide { max-width: 60ch; }
+.spaced { margin-top: var(--sp-5); }
 
 /* ---------- header: tipographic logo version (§3) ---------- */
 .site-header {

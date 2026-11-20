@@ -57,7 +57,23 @@ completo está en `admin/web-backlog.md`; aquí solo lo que está en marcha.
   Alex pidió 301 como Pages. `build_site.sh` genera `_site/_redirects`
   con un 301 por cada carpeta con `index.html` (21 reglas, se actualiza
   solo). Probado con `wrangler dev`: 301 con la consulta conservada,
-  `/_redirects` da 404.
+  `/_redirects` da 404. Subido (`9ad7463`) y desplegado en workers.dev
+  (versión `5a095f3b`), con el sí de Alex: las 21 reglas dan 301.
+- 2026-11-20 · Claude (local, sin subir): página legal es/en dice que
+  sirve Cloudflare (fecha 20-nov, `lastmod` del sitemap); `_headers` con
+  CSP en modo informe (punto 12; la ayuda de Garaticker con su regla
+  propia por los scripts y estilos en línea de Zensical), COOP y CORP
+  `same-origin` con `/img/*` en `cross-origin` (13) y reglas de
+  especulación `prefetch` moderadas por cabecera (14,
+  `speculationrules.json`); el `style=` de Garaticker pasa a la clase
+  `.spaced`. Probado con `wrangler dev`: cabeceras por ruta bien y sin
+  avisos de CSP en las páginas propias. El punto 16 se deja: basta la CSP.
+- 2026-11-20 · Alex: repo conectado en Workers Builds (rama
+  `cloudflare-workers`, `sh scripts/build_site.sh`, `npx wrangler
+  deploy`). Primera compilación de `9ad7463`: success. Previews activadas
+  para las demás ramas (`npx wrangler preview`); en `master` fallarán
+  hasta la fusión, sin efecto en la web. Desde ahora, push a
+  `cloudflare-workers` = desplegar en workers.dev.
 
 ## Falta
 
@@ -73,6 +89,13 @@ completo está en `admin/web-backlog.md`; aquí solo lo que está en marcha.
   legal (es y en); Crawler Hints; puntos 12 a 16 de la revisión (CSP
   primero en modo informe); al final, fusionar la rama y retirar la
   Action de Pages. Cada escritura en Cloudflare, con el sí de Alex.
+- [ ] DNS del panel de Tabaibi (Entrada del 20-nov, plan
+  `projects/tabaibi/code/docs/panel-to-contabo-plan.md`): paso 0, TTL de
+  `tabaibi-panel.sanchesque.com` a 60 s una semana antes; paso 6, CNAME
+  (hoy a `alex-s8yt.dns.northflank.app`) por A a `89.117.63.57` sin
+  proxy. Nada hasta que Tabaibi avise de cada paso
+  (local_ebf6f7cf-64b2-4fdc-a05f-04c9d97978f5) y con el sí de Alex aquí.
+  Vuelta atrás: el CNAME anterior.
 - [ ] 23-nov: revisar indexación en Search Console («Páginas», y que no
   haya errores de DNS) y en el Site Explorer de Bing.
 - [ ] Cuando GIPHY apruebe el canal de marca (D-07): volver a poner sus
@@ -80,8 +103,6 @@ completo está en `admin/web-backlog.md`; aquí solo lo que está en marcha.
 
 ## Preguntas abiertas
 
-- 2026-11-20, para Alex: conectar el repo en el Worker (Settings →
-  Build → Connect, rama `cloudflare-workers`); el sí de Alex está dado.
 - Pendiente de Alex desde el 17-nov: volver a activar la protección de
   dominio en IONOS y revocar la clave de su API (Gestión dice que se va
   a revocar; el paso 8 no la necesita; el DS de DNSSEC del paso 9 irá
