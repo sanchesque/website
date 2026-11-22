@@ -50,6 +50,7 @@
 <link rel="stylesheet" href="../../styles/site.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-header">
   <div class="container">
@@ -68,7 +69,7 @@
   </div>
 </header>
 
-<main>
+<main id="main">
   <!-- Product logo (decision 0016): black primary version, never under 200 px wide. -->
   <section class="hero">
     <div class="container hero-grid">
@@ -83,7 +84,7 @@
         </div>
       </div>
       <figure class="hero-logo">
-        <img src="../../img/brand/garaticker/garaticker-primary-black.svg" alt="Garaticker logo"
+        <img fetchpriority="high" src="../../img/brand/garaticker/garaticker-primary-black.svg" alt="Garaticker logo"
              width="320" height="341">
       </figure>
     </div>
@@ -176,8 +177,8 @@
         <article class="card">
           <h3>Get the app</h3>
           <div class="contact-list">
-            <span class="soon" aria-disabled="true">App Store <small>coming soon</small></span>
-            <span class="soon" aria-disabled="true">Google Play <small>coming soon</small></span>
+            <span class="soon">App Store <small>coming soon</small></span>
+            <span class="soon">Google Play <small>coming soon</small></span>
           </div>
           <p>Until then, follow the studio on
           <a href="https://www.instagram.com/sanchesque">Instagram</a> and
@@ -207,6 +208,6 @@
 
 <script src="../../scripts/lang.js"></script>
 <!-- GoatCounter: visit counter without cookies or personal data -->
-<script data-goatcounter="https://sanchesque.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://sanchesque.goatcounter.com/count" async fetchpriority="low" src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

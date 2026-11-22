@@ -59,6 +59,7 @@
 <link rel="stylesheet" href="../styles/site.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-header">
   <div class="container">
@@ -79,7 +80,7 @@
   </div>
 </header>
 
-<main>
+<main id="main">
   <section class="hero">
     <div class="container hero-grid">
       <div>
@@ -95,7 +96,7 @@
       <!-- Hero image: a pair of cholas on the sand. Placeholder until
            the real photo exists; the symbol is already in the header. -->
       <figure class="hero-photo">
-        <img src="../img/hero-placeholder.svg" alt="Illustration of a pair of flip-flops on the beach sand, with the sea behind"
+        <img fetchpriority="high" src="../img/hero-placeholder.svg" alt="Illustration of a pair of flip-flops on the beach sand, with the sea behind"
              width="360" height="360">
       </figure>
     </div>
@@ -221,7 +222,7 @@
       with concrete ideas:</p>
       <div class="contact-list">
         <a class="big-link" href="mailto:hello@sanchesque.com">hello@sanchesque.com</a>
-        <span class="soon" aria-disabled="true">WhatsApp <small>coming soon</small></span>
+        <span class="soon">WhatsApp <small>coming soon</small></span>
       </div>
     </div>
   </section>
@@ -246,6 +247,6 @@
 
 <script src="../scripts/lang.js"></script>
 <!-- GoatCounter: visit counter without cookies or personal data -->
-<script data-goatcounter="https://sanchesque.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://sanchesque.goatcounter.com/count" async fetchpriority="low" src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

@@ -48,6 +48,7 @@
 <link rel="stylesheet" href="../../styles/site.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-header">
   <div class="container">
@@ -66,7 +67,7 @@
   </div>
 </header>
 
-<main>
+<main id="main">
   <section class="hero">
     <div class="container hero-grid">
       <div>
@@ -82,7 +83,7 @@
         </div>
       </div>
       <figure class="hero-logo">
-        <img src="../../img/brand/tabaibi/tabaibi-primary-color.svg" alt="Tabaibi logo"
+        <img fetchpriority="high" src="../../img/brand/tabaibi/tabaibi-primary-color.svg" alt="Tabaibi logo"
              width="320" height="323">
       </figure>
     </div>
@@ -192,6 +193,6 @@
 
 <script src="../../scripts/lang.js"></script>
 <!-- GoatCounter: visit counter without cookies or personal data -->
-<script data-goatcounter="https://sanchesque.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://sanchesque.goatcounter.com/count" async fetchpriority="low" src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

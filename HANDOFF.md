@@ -12,7 +12,7 @@ completo está en `admin/web-backlog.md`; aquí solo lo que está en marcha.
   publicada.
 - **Turno:** Claude (desde 2026-11-20)
 - **Rama:** `master` (push = publicar en sanchesque.com por Workers
-  Builds). `cloudflare-workers` queda fusionada.
+  Builds). `cloudflare-workers` fusionada y borrada el 22-nov.
 - **Archivos en uso:** ninguno ahora mismo.
 
 ## Hecho
@@ -93,9 +93,9 @@ completo está en `admin/web-backlog.md`; aquí solo lo que está en marcha.
 
 ## Falta
 
-- [ ] Mejoras de `modern-web-review.md` en `master`, en un commit: puntos
-  1 a 8 y 10 (el 7 como regla de `site.css`, DESIGN.md §5). Push con el
-  sí de Alex.
+- [ ] Mejoras de `modern-web-review.md`, puntos 1 a 8 y 10: commit
+  local del 22-nov, probado en local (375, 768 y 1280 px; enlace de
+  salto con Tab; anclas bajo la cabecera). Push con el sí de Alex.
 - [ ] Punto 11: mirar en GoatCounter si `lang.js` cuenta dos visitas al
   redirigir a `/en/`; si se confirma, proponer el arreglo a Gestión.
 - [ ] CSP: tras unos días sin avisos en la consola, pasar
@@ -124,10 +124,9 @@ completo está en `admin/web-backlog.md`; aquí solo lo que está en marcha.
 
 ## Preguntas abiertas
 
-- Pendiente de Alex desde el 17-nov: volver a activar la protección de
-  dominio en IONOS y revocar la clave de su API (Gestión dice que se va
-  a revocar; el paso 8 no la necesita; el DS de DNSSEC del paso 9 irá
-  por el panel o con una clave nueva).
+- 2026-11-22, Alex: la protección de dominio de IONOS no hace falta
+  (lo sabe Gestión). La clave de la API de IONOS sigue activa a
+  propósito, para poner el DS de DNSSEC en el paso 9.
 
 ## Para quien coja el turno
 
