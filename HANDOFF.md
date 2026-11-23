@@ -41,6 +41,15 @@
   60).
 - 22-nov · Claude, con el sí de Alex: mejoras de `modern-web-review.md`,
   puntos 1 a 8 y 10, publicadas en `388ceef` y comprobadas en vivo.
+- 23-nov · Claude, con el sí de Gestión y de Alex: punto 11, publicado
+  en `c703f34` y comprobado en vivo. `scripts/lang-redirect.js`
+  bloqueante en el `<head>` de las tres páginas en español redirige a
+  la ruta del `hreflang="en"` antes de pintar (sin parpadeo ni doble
+  conteo en GoatCounter); `lang.js` solo guarda el clic.
+- 23-nov · Alex: revisión de indexación (exportes en `admin/seo/`).
+  Google, 18 indexadas y 4 sin indexar (1 redirección, 3 rastreadas sin
+  indexar); sitemaps y host bien. Bing, 2 indexadas; aún no ha vuelto a
+  rastrear tras el cambio a Cloudflare. Sin errores de DNS ni servidor.
 
 ## Falta
 
@@ -56,17 +65,15 @@
 - [ ] **Paso 9 (Alex), entre el 27-nov y el 4-dic:** desactivar GitHub
   Pages sin borrar su TXT y activar DNSSEC (el DS se pone en IONOS con
   la clave de su API). Después, revocar la clave de IONOS.
-- [ ] **23-nov:** revisar indexación en Search Console («Páginas», sin
-  errores de DNS) y en el Site Explorer de Bing. Necesita la sesión de
-  Alex; pendiente de que la abra.
-- [ ] **Punto 11 (`lang.js`):** hecho en local el 23-nov con el sí de
-  Gestión, falta publicarlo con el sí de Alex. El doble conteo era una
-  carrera entre `location.replace` al final del `<body>` y `count.js`
-  async. Ahora `scripts/lang-redirect.js` va bloqueante en el `<head>`
-  de las tres páginas en español, tras los `alternate`, y redirige a la
-  ruta del `hreflang="en"` en el mismo host; `lang.js` solo guarda el
-  clic. Probado en local: `en` redirige en las tres, `es`, sin clave o
-  con `#ancla` no. Tras publicar, mirarlo en vivo.
+- [ ] **Hacia el 7-dic, 404 de Googlebot:** el 23-nov eran el 21 % del
+  rastreo (pico el 15-nov, aún en GitHub Pages). Rastreo propio del
+  23-nov: ningún enlace ni recurso nuestro roto. Si el porcentaje no
+  baja, Alex abre en Search Console Ajustes › Estadísticas de rastreo ›
+  «No se ha encontrado (404)», que lista las URL, y se decide.
+  Candidatas: URL antiguas e internas que ya dan 404 a propósito.
+  `/favicon.ico` y `/apple-touch-icon.png` en la raíz redirigen con 301
+  a `img/brand/` desde el 23-nov (`build_site.sh` añade las dos reglas
+  a `_redirects`).
 - [ ] **GIPHY (D-07):** cuando apruebe el canal de marca, volver a poner
   sus enlaces en el pie, `sameAs`, la página de Garaticker y el perfil.
 
