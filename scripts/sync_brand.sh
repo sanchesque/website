@@ -23,10 +23,11 @@ mkdir -p "$SITE/img/brand/tabaibi"
 cp "$BRAND/logos/tabaibi/svg/tabaibi-primary-color.svg" \
    "$BRAND/logos/tabaibi/png/tabaibi-primary-color-500.png" "$SITE/img/brand/tabaibi/"
 cp "$BRAND/logos/tabaibi/favicon/og-image.png" "$SITE/img/brand/tabaibi/og-image.png"
-# Garaticker product page: logo and raster logo for structured data (decision 0016)
+# Garaticker product page: logo and raster logo for structured data (decision 0016), social preview
 mkdir -p "$SITE/img/brand/garaticker"
 cp "$BRAND/logos/garaticker/svg/garaticker-primary-black.svg" \
    "$BRAND/logos/garaticker/png/garaticker-primary-black-500.png" "$SITE/img/brand/garaticker/"
+cp "$BRAND/logos/garaticker/favicon/og-image.png" "$SITE/img/brand/garaticker/og-image.png"
 # email templates (brand/email/): mail clients block SVG, so they load these PNGs from here
 mkdir -p "$SITE/img/brand/email"
 cp "$BRAND/logos/sanchesque/png/sanchesque-horizontal-black-1000.png" \

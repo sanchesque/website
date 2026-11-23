@@ -61,6 +61,11 @@
 - 23-nov · Claude, a petición de Gestión (plan de la web aprobado,
   decisión 0020): quitada la línea «WhatsApp próximamente» del contacto
   en `/` y `/en/`. `.soon` se queda para App Store y Google Play.
+- 23-nov · Claude, a petición de Marca: `og:image` propio de Garaticker
+  en `/garaticker/` y `/en/garaticker/` (`img/brand/garaticker/og-image.png`,
+  copiado por `sync_brand.sh`). La ayuda lo cambia en su tema
+  (`docs-theme/main.html`): pedido en la Entrada de Garaticker; luego
+  `sync_garaticker.sh help`.
 - 23-nov · Alex: revisión de indexación (exportes en `admin/seo/`).
   Google, 18 indexadas y 4 sin indexar (1 redirección, 3 rastreadas sin
   indexar); sitemaps y host bien. Bing, 2 indexadas; aún no ha vuelto a
