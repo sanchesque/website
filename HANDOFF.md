@@ -46,6 +46,11 @@
   bloqueante en el `<head>` de las tres páginas en español redirige a
   la ruta del `hreflang="en"` antes de pintar (sin parpadeo ni doble
   conteo en GoatCounter); `lang.js` solo guarda el clic.
+- 23-nov · Claude, con el sí de Alex: `/favicon.ico` y
+  `/apple-touch-icon.png` de la raíz, 301 a `img/brand/` (`d67235d`,
+  comprobado en vivo). Caché de `/fonts/*` a 30 días (`9f0f93e`, entró
+  con el paso 8) comprobada en vivo. La regla de caché de la zona es de
+  Garaticker (`stickers.sanchesque.com`), no de la web.
 - 23-nov · Alex: revisión de indexación (exportes en `admin/seo/`).
   Google, 18 indexadas y 4 sin indexar (1 redirección, 3 rastreadas sin
   indexar); sitemaps y host bien. Bing, 2 indexadas; aún no ha vuelto a
