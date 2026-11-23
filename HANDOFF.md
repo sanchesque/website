@@ -5,8 +5,8 @@
 `sanchesque/.github`, rama `main`). El backlog completo está en
 `admin/web-backlog.md`; aquí solo lo que está en marcha.
 
-- **Objetivo:** web en Cloudflare Workers (D-05) estable; cerrar la CSP
-  y lo que queda del plan de dominios. Se comprueba con
+- **Objetivo:** web en Cloudflare Workers (D-05) estable y cerrar
+  lo que queda del plan de dominios. Se comprueba con
   `python3 scripts/check_site.py _site` y mirando la web publicada.
 - **Turno:** Claude (desde 2026-11-20)
 - **Rama:** `master`. Push = publicar en sanchesque.com (Workers Builds:
@@ -51,6 +51,16 @@
   comprobado en vivo). Caché de `/fonts/*` a 30 días (`9f0f93e`, entró
   con el paso 8) comprobada en vivo. La regla de caché de la zona es de
   Garaticker (`stickers.sanchesque.com`), no de la web.
+- 23-nov · Claude, con el sí de Alex: CSP real (`db7d6f7`), una sola
+  cabecera `Content-Security-Policy` (absorbe la de `frame-ancestors`);
+  la ayuda de Garaticker conserva la suya con `'unsafe-inline'`.
+  Comprobado en vivo: cabecera en 8 páginas; consola sin errores en `/`,
+  `/en/` y la ayuda; Manrope, imágenes, GoatCounter y el buscador de la
+  ayuda funcionan. No hay formularios. Vuelta atrás: renombrar las tres
+  `Content-Security-Policy` de `_headers` a `-Report-Only`.
+- 23-nov · Claude, a petición de Gestión (plan de la web aprobado,
+  decisión 0020): quitada la línea «WhatsApp próximamente» del contacto
+  en `/` y `/en/`. `.soon` se queda para App Store y Google Play.
 - 23-nov · Alex: revisión de indexación (exportes en `admin/seo/`).
   Google, 18 indexadas y 4 sin indexar (1 redirección, 3 rastreadas sin
   indexar); sitemaps y host bien. Bing, 2 indexadas; aún no ha vuelto a
@@ -64,9 +74,6 @@
   borrar el A de `tabaibi-panel` y crear el CNAME
   `tabaibi-panel.sanchesque.com.alex-s8yt.dns.northflank.app` (sin
   proxy, TTL 60).
-- [ ] **CSP:** tras unos días sin avisos en la consola, pasar
-  `Content-Security-Policy-Report-Only` a `Content-Security-Policy` en
-  `_headers`, con el sí de Alex.
 - [ ] **Paso 9 (Alex), entre el 27-nov y el 4-dic:** desactivar GitHub
   Pages sin borrar su TXT y activar DNSSEC (el DS se pone en IONOS con
   la clave de su API). Después, revocar la clave de IONOS.
@@ -96,8 +103,8 @@ Ninguna. La protección de dominio de IONOS no hace falta (Alex,
   La ayuda de Garaticker se trae con `scripts/sync_garaticker.sh help`.
 - Sin raya larga (U+2014) en ningún texto. Web bilingüe: cada cambio va
   en `/` y en `/en/`. `check_site.py` lo comprueba.
-- Reglas fijas: `/tabaibi/` y `/en/tabaibi/` no se mueven; «WhatsApp
-  próximamente» se queda en gris; no se publica la privacidad de
+- Reglas fijas: `/tabaibi/` y `/en/tabaibi/` no se mueven; WhatsApp
+  del estudio no se enlaza (no es público); no se publica la privacidad de
   Garaticker; GPTBot y OAI-SearchBot pueden leer la web (sin bloqueo de
   bots de IA en Cloudflare).
 - Un archivo público nuevo en la raíz o una carpeta nueva se añade a
