@@ -64,8 +64,8 @@
 - 23-nov · Claude, a petición de Marca: `og:image` propio de Garaticker
   en `/garaticker/` y `/en/garaticker/` (`img/brand/garaticker/og-image.png`,
   copiado por `sync_brand.sh`). La ayuda lo cambia en su tema
-  (`docs-theme/main.html`): pedido en la Entrada de Garaticker; luego
-  `sync_garaticker.sh help`.
+  (`docs-theme/main.html`); Garaticker lo hizo y el 24-nov se trajo
+  con `sync_garaticker.sh help` (14 páginas, solo imagen y alt).
 - 23-nov · Alex: revisión de indexación (exportes en `admin/seo/`).
   Google, 18 indexadas y 4 sin indexar (1 redirección, 3 rastreadas sin
   indexar); sitemaps y host bien. Bing, 2 indexadas; aún no ha vuelto a
@@ -73,6 +73,22 @@
 
 ## Falta
 
+- [ ] **`/social/`:** plan en `docs/social-page-plan.md` (24-nov), en
+  espera de la Fase 1; preguntas abiertas en su §5.
+- [ ] **SEO:** informe de la subsesión en `docs/seo/audit-2026-11-24.md`
+  (24-nov): 1 alta (H-A1, `sitemap.xml` por subpágina de la ayuda da
+  404, confirmado en vivo), 4 medias, 9 bajas y P-1 a P-4 para Alex.
+  Propuestas para `check_site.py` en `docs/seo/checklist.md`.
+  Aprobado por Alex y hecho en local el 24-nov: H-A1 (301 por subpágina
+  en `build_site.sh`), H-M1, H-M2 (`WebSite`), H-M3 (pendiente del visto
+  bueno de Garaticker), H-B1 (301 de `index.html`), H-B4 y H-B5, y GitHub
+  en `sameAs`. H-B2 sin cambio (lleva `noindex`). Lo de la ayuda, en la
+  Entrada de Garaticker. P-1 a P-4: Alex, más adelante (hacia el 7-dic).
+- [ ] **Cuatro commits locales sin subir** (24-nov): ayuda de Garaticker
+  con su `og:image`, plan de `/social/`, informe SEO y sus correcciones
+  (`95c681d`). Alex: «todavía no». Subir aplastados solo con su sí; al
+  publicar, comprobar con curl `/tabaibi/`, `/index.html`, `/404.html` y
+  un `…/help/faq/sitemap.xml`, y avisar a la subsesión SEO con el hash.
 - [ ] **Panel de Tabaibi:** borrar `tabaibi-panel-new` cuando Tabaibi
   avise del final del traslado (hacia el 27-nov o después), con el sí
   de Alex. Mientras dure el rodaje, vuelta atrás si Tabaibi la pide:
@@ -109,7 +125,7 @@ Ninguna. La protección de dominio de IONOS no hace falta (Alex,
 - Sin raya larga (U+2014) en ningún texto. Web bilingüe: cada cambio va
   en `/` y en `/en/`. `check_site.py` lo comprueba.
 - Reglas fijas: `/tabaibi/` y `/en/tabaibi/` no se mueven; WhatsApp
-  del estudio no se enlaza (no es público); no se publica la privacidad de
+  Business del estudio es «Solo clientes»: no se publica ni se enlaza; no se publica la privacidad de
   Garaticker; GPTBot y OAI-SearchBot pueden leer la web (sin bloqueo de
   bots de IA en Cloudflare).
 - Un archivo público nuevo en la raíz o una carpeta nueva se añade a
