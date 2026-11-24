@@ -8,7 +8,9 @@
 - **Objetivo:** web en Cloudflare Workers (D-05) estable y cerrar
   lo que queda del plan de dominios. Se comprueba con
   `python3 scripts/check_site.py _site` y mirando la web publicada.
-- **Turno:** Claude (desde 2026-11-20)
+- **Turno:** Claude (desde 2026-11-20). El 24-nov Vibe ejecutó la orden
+  de Alex vía Gestión (squash y push) y la sincronización de brand
+  pedida por Marca; ver «Hecho».
 - **Rama:** `master`. Push = publicar en sanchesque.com (Workers Builds:
   `sh scripts/build_site.sh && python3 scripts/check_site.py _site`,
   luego `npx wrangler deploy`). Las demás ramas generan vistas previas
@@ -66,6 +68,23 @@
   copiado por `sync_brand.sh`). La ayuda lo cambia en su tema
   (`docs-theme/main.html`); Garaticker lo hizo y el 24-nov se trajo
   con `sync_garaticker.sh help` (14 páginas, solo imagen y alt).
+- 24-nov · Vibe, con el sí de Alex vía Gestión: los 4 commits locales
+  (f278f0b, 4d6c1b1, 67287e8, a16f457) aplastados en uno según la 0003
+  conservando el trailer de Claude y publicados en `456ac08` (push a
+  origin/master; Workers Builds desplegó). Comprobado en vivo con
+  curl: `/tabaibi/` y `/en/tabaibi/` 200, `/index.html` 301 a `/`,
+  `/404.html` 307 a `/404`, `/garaticker/help/faq/sitemap.xml` y la
+  versión `/en/` 301 a `/garaticker/help/sitemap.xml` (H-A1), sitemap
+  de la ayuda 200, home con GitHub en `sameAs`, `lastmod` 2026-11-24
+  en el sitemap y CSP real activa. Subsesión «Sanchesque.com · SEO»
+  avisada con el hash `456ac08`.
+- 24-nov · Vibe, a petición de Marca (brand `55764e4`, planes P-1 a P-8
+  aprobados): `sync_brand.sh` copia ya los avatares
+  `logos/*/social/*-avatar-1080.png` a `img/brand/*/social/` y los PNG
+  de email `tabaibi-horizontal-color-1000.png` (firma P-1 de tabaibi@)
+  y `garaticker-horizontal-black-1000.png` (boletín P-6) a
+  `img/brand/email/`. Hecho en local; `check_site.py` ok (25 páginas).
+  Sin subir: falta el sí de Alex para publicar.
 - 23-nov · Alex: revisión de indexación (exportes en `admin/seo/`).
   Google, 18 indexadas y 4 sin indexar (1 redirección, 3 rastreadas sin
   indexar); sitemaps y host bien. Bing, 2 indexadas; aún no ha vuelto a
@@ -84,11 +103,18 @@
   bueno de Garaticker), H-B1 (301 de `index.html`), H-B4 y H-B5, y GitHub
   en `sameAs`. H-B2 sin cambio (lleva `noindex`). Lo de la ayuda, en la
   Entrada de Garaticker. P-1 a P-4: Alex, más adelante (hacia el 7-dic).
-- [ ] **Cuatro commits locales sin subir** (24-nov): ayuda de Garaticker
-  con su `og:image`, plan de `/social/`, informe SEO y sus correcciones
-  (`95c681d`). Alex: «todavía no». Subir aplastados solo con su sí; al
-  publicar, comprobar con curl `/tabaibi/`, `/index.html`, `/404.html` y
-  un `…/help/faq/sitemap.xml`, y avisar a la subsesión SEO con el hash.
+- [ ] **Commit local sin subir (24-nov):** sincronización de brand
+  (`sync_brand.sh` ampliado, 2 PNG de email y 2 avatares social en
+  `img/brand/`). Publicar solo con el sí de Alex en este chat.
+- [ ] **Favicon con la G en `/garaticker/help/`** (petición de Marca,
+  23-nov): la ayuda se genera en el repo de Garaticker y se copia con
+  `sync_garaticker.sh help`. La sesión Garaticker investigó el 24-nov
+  (turno allí: Claude): el cambio es en sus `zensical.help-es/en.toml`
+  (`favicon` y `logo` a `assets/brand-garaticker/`) más el mapeo de su
+  `scripts/sync_brand.py`; el favicon propio está en
+  `brand/logos/garaticker/favicon/`. Cuando Garaticker lo publique,
+  re-sincronizar aquí con `scripts/sync_garaticker.sh help` y subir con
+  el sí de Alex.
 - [ ] **Panel de Tabaibi:** borrar `tabaibi-panel-new` cuando Tabaibi
   avise del final del traslado (hacia el 27-nov o después), con el sí
   de Alex. Mientras dure el rodaje, vuelta atrás si Tabaibi la pide:

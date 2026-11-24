@@ -1,8 +1,29 @@
-# Comprobaciones SEO para `check_site.py` · propuesta
+# Comprobaciones SEO para `check_site.py`
 
-Propuesta de la subsesión «Sanchesque.com · SEO» (24-nov-2026), sin
-código. Sale de `audit-2026-11-24.md`. La madre decide cuáles entran y
-las escribe.
+Propuesta de la subsesión «Sanchesque.com · SEO» (24-nov-2026), de
+`audit-2026-11-24.md`. **Implementada el 24-nov-2026 por orden de Alex
+(vía Gestión): todas entran en `scripts/check_site.py`**, con estos
+ajustes decididos al implementar:
+
+- C-01 a C-14 entran como **errores** salvo la parte de `lastmod` de
+  C-07, que entra como **aviso**: `lastmod` solo debe reflejar cambios
+  de contenido visible (H-M1) y, con el criterio estricto de `git log`,
+  falla hoy en `/legal/` y `/en/legal/` (cambiaron las cabeceras OG el
+  24-nov sin tocar el contenido).
+- W-01 a W-04 entran como **avisos**.
+- L-01 a L-05 entran en el modo **`--live`**:
+  `python3 scripts/check_site.py --live` (comprueba la web publicada
+  con agente de usuario propio, H-B8; la lanza la madre a mano tras cada
+  publicación).
+
+Verificado el 24-nov sobre `_site/` y el repo: 25 páginas, 0 errores y
+5 avisos (W-01 en los títulos de la ayuda, que arregla Garaticker, y
+C-07 en legal). `--live` contra producción: L-01 a L-05 pasan.
+
+---
+
+Propuesta original (24-nov-2026), sin código. La madre decide cuáles
+entran y las escribe.
 
 Hoy `check_site.py` ya comprueba: raya larga, enlaces internos rotos,
 gemelo en `/en/` y que cada página propia esté en `sitemap.xml`. Todo lo
@@ -36,10 +57,11 @@ publicación, así que un fallo para el despliegue.
 | C-13 | No se publica nada de `garaticker/artists` ni ninguna página de privacidad de Garaticker | `_site/` | Reglas fijas: guía para artistas y privacidad fuera |
 | C-14 | Ningún enlace interno a `index.html` ni a una carpeta sin barra final | propias | Evita 307 y 301 innecesarios (H-B1) |
 
-Hoy fallarían C-05 (legal sin Open Graph, H-B5), C-07 (`lastmod`,
+El 24-nov fallaban C-05 (legal sin Open Graph, H-B5), C-07 (`lastmod`,
 H-M1) y C-14 si se cuentan los enlaces `./` y `../` como carpetas (no
-deben contarse: solo rutas sin barra final). Entran después de arreglar
-esos hallazgos, o primero como aviso.
+deben contarse: solo rutas sin barra final). Los tres arreglos se
+publicaron en `456ac08` y ya pasan como error, salvo la parte `lastmod`
+de C-07, que quedó como aviso (ver arriba).
 
 ## Avisos (se imprimen, no paran)
 

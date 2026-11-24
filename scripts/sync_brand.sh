@@ -28,8 +28,15 @@ mkdir -p "$SITE/img/brand/garaticker"
 cp "$BRAND/logos/garaticker/svg/garaticker-primary-black.svg" \
    "$BRAND/logos/garaticker/png/garaticker-primary-black-500.png" "$SITE/img/brand/garaticker/"
 cp "$BRAND/logos/garaticker/favicon/og-image.png" "$SITE/img/brand/garaticker/og-image.png"
+# social avatars (brand/logos/*/social/), for the /social/ page when phase 1 starts
+mkdir -p "$SITE/img/brand/tabaibi/social" "$SITE/img/brand/garaticker/social"
+cp "$BRAND/logos/tabaibi/social/tabaibi-avatar-1080.png" "$SITE/img/brand/tabaibi/social/"
+cp "$BRAND/logos/garaticker/social/garaticker-avatar-1080.png" "$SITE/img/brand/garaticker/social/"
 # email templates (brand/email/): mail clients block SVG, so they load these PNGs from here
+# (tabaibi-horizontal-color-1000.png for the tabaibi@ signature P-1, garaticker-horizontal-black-1000.png for the P-6 newsletter)
 mkdir -p "$SITE/img/brand/email"
 cp "$BRAND/logos/sanchesque/png/sanchesque-horizontal-black-1000.png" \
-   "$BRAND/logos/tabaibi/png/tabaibi-horizontal-white-1000.png" "$SITE/img/brand/email/"
+   "$BRAND/logos/tabaibi/png/tabaibi-horizontal-white-1000.png" \
+   "$BRAND/logos/tabaibi/png/tabaibi-horizontal-color-1000.png" \
+   "$BRAND/logos/garaticker/png/garaticker-horizontal-black-1000.png" "$SITE/img/brand/email/"
 echo "synced brand files from $BRAND"
