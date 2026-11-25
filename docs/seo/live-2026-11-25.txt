@@ -1,0 +1,6 @@
+aviso: W-01 en/garaticker/help/faq/index.html: title is 23 chars (H-B3, fix in Garaticker)
+aviso: W-01 en/garaticker/help/index.html: title is 17 chars (H-B3, fix in Garaticker)
+aviso: W-01 garaticker/help/index.html: title is 18 chars (H-B3, fix in Garaticker)
+aviso: C-07 https://sanchesque.com/legal/: lastmod 2026-11-20 is older than its last commit 2026-11-24
+aviso: C-07 https://sanchesque.com/en/legal/: lastmod 2026-11-20 is older than its last commit 2026-11-24
+ok: 25 pages checked, 5 warnings, live checks L-01..L-05 passed

@@ -1,0 +1,31 @@
+# Post-deploy smoke test: when the "Push on master" workflow (Workers
+# Builds) finishes deploying master, run the live checks L-01..L-05 of
+# scripts/check_site.py against https://sanchesque.com and fail the run
+# if any of them fails. It can also be triggered by hand after a manual
+# deploy (Actions tab, "Post-deploy live checks", Run workflow).
+# No secrets needed: it only reads the public site.
+name: Post-deploy live checks
+
+on:
+  workflow_run:
+    workflows: ["Push on master"]
+    types: [completed]
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-checks:
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Live checks L-01..L-05
+        run: python3 scripts/check_site.py --live

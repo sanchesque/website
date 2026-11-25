@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Pre-push checks for the site: no em dashes, no broken internal links,
 every Spanish page has its /en/ twin, every page is in the sitemap, plus the
-SEO checks C-01..C-14 (errors) and W-01..W-04 (warnings) proposed in
-docs/seo/checklist.md (24-nov-2026, approved by Alex the same day).
+SEO checks C-01..C-15 (errors) and W-01..W-04 (warnings) proposed in
+docs/seo/checklist.md (24-nov-2026, approved by Alex the same day). C-15
+checks that the vendored brand copies are in sync with brand/ (skipped
+when brand/ is not next to the repo, e.g. in CI).
 
     python3 scripts/check_site.py [dir]     local checks (default: the repo;
                                             run on _site/ after build_site.sh)
@@ -343,6 +345,23 @@ for p in own_pages():
         last = target.rstrip("/").rsplit("/", 1)[-1]
         if target.endswith("index.html") or ("." not in last and not target.endswith("/")):
             err(f"C-14 {rel}: link to {target} (H-B1: use the folder with trailing slash)")
+
+# C-15 vendored brand copies (styles/brand, img/brand, fonts) in sync with
+# brand/ (decision 0004). Only when brand/ exists next to the repo; CI
+# checks out this repo alone and skips it. Running sync_brand.sh refreshes
+# the copies, so any diff against HEAD means they were stale.
+if SITE == REPO and (REPO.parent / "brand").is_dir():
+    try:
+        subprocess.run(["sh", str(REPO / "scripts" / "sync_brand.sh")],
+                       check=True, capture_output=True, timeout=60)
+        out = subprocess.run(["git", "-C", str(REPO), "status", "--porcelain", "--",
+                              "styles/brand", "img/brand", "fonts"],
+                             capture_output=True, text=True, timeout=10)
+        if out.returncode == 0 and out.stdout.strip():
+            err("C-15: styles/brand, img/brand or fonts/ differ from brand/ after "
+                "scripts/sync_brand.sh; commit the refreshed copies (decision 0004)")
+    except Exception as e:
+        err(f"C-15: could not verify the brand copies ({e})")
 
 # W-02 page weight: own HTML under 100 KB; images under 300 KB except og-image
 for p in own_pages():

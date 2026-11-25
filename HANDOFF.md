@@ -78,13 +78,22 @@
   de la ayuda 200, home con GitHub en `sameAs`, `lastmod` 2026-11-24
   en el sitemap y CSP real activa. Subsesión «Sanchesque.com · SEO»
   avisada con el hash `456ac08`.
+- 24-nov · Vibe, orden de Alex vía Gestión (local, sin push):
+  `scripts/publish.sh` (check_site del repo con C-15, build, check de
+  `_site`, push, espera del run «Push on master» del commit vía `gh`,
+  luego `check_site.py --live`; salida archivada en `logs/`, gitignored
+  y no publicada); Action `.github/workflows/post-deploy.yml` que corre
+  `check_site.py --live` tras «Push on master» en master (y a mano con
+  workflow_dispatch) y falla si L-01..L-05 no pasan; C-15 en
+  `check_site.py` (copias de brand al día con `brand/`, solo en local);
+  sección «Vigilancias con fecha» en `admin/web-backlog.md`.
 - 24-nov · Vibe, a petición de Marca (brand `55764e4`, planes P-1 a P-8
   aprobados): `sync_brand.sh` copia ya los avatares
   `logos/*/social/*-avatar-1080.png` a `img/brand/*/social/` y los PNG
   de email `tabaibi-horizontal-color-1000.png` (firma P-1 de tabaibi@)
   y `garaticker-horizontal-black-1000.png` (boletín P-6) a
-  `img/brand/email/`. Hecho en local; `check_site.py` ok (25 páginas).
-  Sin subir: falta el sí de Alex para publicar.
+  `img/brand/email/`. Publicado por Claude el 24-nov en `9e823ec`
+  (squash con el sí de Alex vía Gestión); comprobado en vivo.
 - 23-nov · Alex: revisión de indexación (exportes en `admin/seo/`).
   Google, 18 indexadas y 4 sin indexar (1 redirección, 3 rastreadas sin
   indexar); sitemaps y host bien. Bing, 2 indexadas; aún no ha vuelto a
@@ -103,9 +112,12 @@
   bueno de Garaticker), H-B1 (301 de `index.html`), H-B4 y H-B5, y GitHub
   en `sameAs`. H-B2 sin cambio (lleva `noindex`). Lo de la ayuda, en la
   Entrada de Garaticker. P-1 a P-4: Alex, más adelante (hacia el 7-dic).
-- [ ] **Commit local sin subir (24-nov):** sincronización de brand
-  (`sync_brand.sh` ampliado, 2 PNG de email y 2 avatares social en
-  `img/brand/`). Publicar solo con el sí de Alex en este chat.
+- [ ] **Commit local sin subir (25-nov):** la automatización de
+  publicación de esta orden (`scripts/publish.sh`, Action
+  `.github/workflows/post-deploy.yml`, C-15 en `check_site.py`,
+  `logs/` en `.gitignore`) más el re-sync de `img/brand/garaticker/og-image.png`
+  con brand `a85b3e2`. Publicar solo con el sí de Alex en este chat,
+  con `scripts/publish.sh`.
 - [ ] **Favicon con la G en `/garaticker/help/`** (petición de Marca,
   23-nov): la ayuda se genera en el repo de Garaticker y se copia con
   `sync_garaticker.sh help`. La sesión Garaticker investigó el 24-nov
@@ -145,6 +157,10 @@ Ninguna. La protección de dominio de IONOS no hace falta (Alex,
 
 - Nada se sube sin el sí de Alex en el chat de esta sesión; el de otra
   sesión no vale. Cada escritura en Cloudflare o IONOS, también.
+- Publicar: con el sí de Alex, `scripts/publish.sh` (cadena completa con
+  checks en vivo); `scripts/publish.sh --no-push` solo comprueba y
+  construye. La Action «Post-deploy live checks» repite L-01..L-05 tras
+  cada «Push on master».
 - Las copias de marca (`styles/brand/`, `img/brand/`, `fonts/`) no se
   editan: se cambian en `brand/` y se traen con `scripts/sync_brand.sh`.
   La ayuda de Garaticker se trae con `scripts/sync_garaticker.sh help`.

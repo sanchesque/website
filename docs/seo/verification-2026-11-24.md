@@ -1,6 +1,9 @@
 # Verificación en vivo tras el despliegue del 24-nov-2026
 
-Subsesión «Sanchesque.com · SEO». Despliegue publicado el 2026-11-24
+Subsesión «Sanchesque.com · SEO». Convención fecha+hash (`HANDOFF.md`):
+esta verificación corresponde al despliegue `456ac08` del 2026-11-24.
+
+Despliegue publicado el 2026-11-24
 como squash `456ac0864ba2e464ef685b80b41c7a6de6d10db8` (fusión de
 `f278f0b`, `4d6c1b1`, `67287e8`, `a16f457` según la decisión 0003, con el
 sí de Alex vía Gestión). Workers Builds ya lo sirve en

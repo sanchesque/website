@@ -7,7 +7,19 @@ Entrada de la madre: `admin/web-backlog.md`.
 
 - **Turno:** Vibe (desde 2026-11-24, orden de Alex vía Gestión)
 - **Archivos propios:** `audit-2026-11-24.md`, `checklist.md`,
-  `verification-2026-11-24.md`, este HANDOFF.
+  `verification-2026-11-24.md`, `monthly-report-template.md`,
+  `live-*.txt`, este HANDOFF.
+
+## Convenciones
+
+- **Fecha + hash:** cada auditoría y cada verificación llevan fecha
+  (AAAA-MM-DD) y, si hubo despliegue desde la anterior, el hash de
+  `master` que se publicó (p. ej. `456ac08`). Las salidas del rastreo
+  semanal son `live-AAAA-MM-DD.txt` (UTC).
+- Los informes mensuales se copian de `monthly-report-template.md` como
+  `monthly-AAAA-MM-DD.md`; los exports de consola van a `admin/seo/` con
+  la fecha delante del nombre.
+- Sin raya larga (U+2014) en ningún texto; `check_site.py` lo comprueba.
 
 ## Hecho
 
@@ -26,6 +38,14 @@ Entrada de la madre: `admin/web-backlog.md`.
 - 24-nov · PageSpeed Insights reintentado (API sin clave, móvil, las 5
   URL de H-M4): 429, cuota diaria del proyecto anónimo agotada. Anotado
   en la auditoría; H-M4 sigue abierto.
+- 25-nov · Por orden de Alex (24-nov, vía Gestión): plantilla de informe
+  mensual `monthly-report-template.md`; script de rastreo semanal
+  `scripts/seo_weekly.sh` (corre `check_site.py --live`, guarda
+  `docs/seo/live-AAAA-MM-DD.txt` y alerta con exit 2 si fallan L-03/L-04);
+  convención fecha+hash documentada aquí y en cada auditoría. Probado
+  `seo_weekly.sh` a mano: `live-2026-11-25.txt`, exit 0, L-01 a L-05
+  pasan. La programación semanal (cron del sistema o de la sesión) la
+  pone la madre; el script vale también a mano tras cada despliegue.
 
 ## Falta
 
@@ -38,12 +58,11 @@ Entrada de la madre: `admin/web-backlog.md`.
 - **H-M3, H-B3, H-B6, H-B7 y el origen de H-A1:** a Garaticker por su
   Entrada.
 - **D-07 (GIPHY) y `/social/`:** bloqueados en la madre (Fase 1).
-- El script nuevo aún no está subido: va con el siguiente push de la
-  madre (por ahora, local; `git status` lo muestra modificado).
+- `scripts/seo_weekly.sh` aún no está subido: va con el siguiente push
+  de la madre (local; `check_site.py` ya entró en `9e823ec`).
+- Programar el rastreo semanal (cron) es de la madre.
 
 ## Reglas
 
 - Nada se publica sin el sí de Alex en el chat de la sesión madre.
-- Sin raya larga (U+2014) en ningún texto; `check_site.py` lo comprueba.
-- Los informes y verificaciones llevan fecha y, tras un despliegue, el
-  hash (ver `verification-2026-11-24.md`).
+- Convenciones de fecha+hash, arriba.
