@@ -38,29 +38,55 @@ Entrada de la madre: `admin/web-backlog.md`.
 - 24-nov · PageSpeed Insights reintentado (API sin clave, móvil, las 5
   URL de H-M4): 429, cuota diaria del proyecto anónimo agotada. Anotado
   en la auditoría; H-M4 sigue abierto.
+- 25-nov · **Search Console API funcionando** (P-2/P-4 parcial): SA en
+  `~/.secrets/gsc-sa.json` (600), añadida como propietaria de la
+  propiedad de dominio `sc-domain:sanchesque.com`; primer fetch OK en
+  `gsc-2026-11-25.md` + JSON en `gsc-2026-11-25/` (3 sitemaps sin
+  errores, 39 impresiones y 1 clic en nov, `/` indexada PASS). La lista
+  de 404 (P-1) solo sale de la web de SC y ya se exportó aparte.
+- 25-nov · **Search Console API preparada:** librerías instaladas con
+  el sí de Alex en `~/.venvs/gsc` (venv fuera del repo;
+  `google-api-python-client` 2.202.0 + auth) y helper
+  `docs/seo/gsc_fetch.py`, que lee la cuenta de servicio del llavero
+  (`gsc-service-account`) o de `GSC_SA_FILE` y guarda sitemaps,
+  searchanalytics y urlInspection en `gsc-AAAA-MM-DD/`. Sin credencial
+  todavía: falta crear la cuenta de servicio en Cloud Console y añadirla
+  como propietaria en Search Console.
+- 25-nov · **Bing Webmaster Tools vía API** (P-3 resuelto): sitio
+  verificado; 3 sitemaps en Success con 22 URL (8+7+7), el principal
+  releído el 22-nov y los de la ayuda desde el 15-nov; 1 impresión
+  (13-nov), 0 clics; rastreo en ritmo normal. Informe en
+  `bing-2026-11-25.md` con los JSON brutos en `bing-2026-11-25/`. La key
+  se leyó del llavero en variable, sin imprimirla ni guardarla.
 - 25-nov · Por orden de Alex (24-nov, vía Gestión): plantilla de informe
   mensual `monthly-report-template.md`; script de rastreo semanal
   `scripts/seo_weekly.sh` (corre `check_site.py --live`, guarda
   `docs/seo/live-AAAA-MM-DD.txt` y alerta con exit 2 si fallan L-03/L-04);
   convención fecha+hash documentada aquí y en cada auditoría. Probado
   `seo_weekly.sh` a mano: `live-2026-11-25.txt`, exit 0, L-01 a L-05
-  pasan. La programación semanal (cron del sistema o de la sesión) la
-  pone la madre; el script vale también a mano tras cada despliegue.
+  pasan. Subido con el push `766b9cd` (aviso de Gestión, 24-nov), junto
+  con la plantilla mensual; `check_site.py` ya entró en `9e823ec`.
+- 26-nov · Claude, a petición de Sanchesque.com: C-07 de `checklist.md` propone comparar el texto de `<main>` en la fecha de `lastmod` con el actual (los cambios solo en `<head>` no cuentan). Recomendado no publicar los JSON brutos de GSC y Bing en el repo público (`b_GetUserSites.json` lleva los códigos de verificación de Bing); lo decide Alex. Sin commit.
 
 ## Falta
 
 - **H-M4:** PageSpeed o Lighthouse otro día (o `npx lighthouse` con el
   sí de Alex); si la ayuda pasa de 2,5 s de LCP, llevarlo a Garaticker.
-- **P-1 a P-4:** Alex, en Search Console y Bing Webmaster Tools (hacia
-  el 7-dic; P-1 se puede hacer ya).
+- **P-4:** Alex, en Search Console (mejoras/datos estructurados y CWV).
+  **P-1 ya está hecho** (25-nov): la lista de 404 confirma H-A1 (los 12
+  `…/help/*/sitemap.xml`, últimos 404 el 21-nov) más favicons de la
+  época Pages; ver `crawl-404-2026-11-25.md`. **P-2 ya está hecho** (18
+  indexadas, 1 redirección normal, 3 de la ayuda rastreadas sin indexar;
+  `coverage-2026-11-25.md`). **P-3 (Bing) ya está hecho** vía API:
+  `bing-2026-11-25.md`. **P-1 a P-3 cerrados.**
 - **F-404 (hacia el 7-dic):** vigilar si baja el 21 % de 404 de
   Googlebot; F-HA1, unas 2-3 semanas tras `456ac08`.
 - **H-M3, H-B3, H-B6, H-B7 y el origen de H-A1:** a Garaticker por su
   Entrada.
 - **D-07 (GIPHY) y `/social/`:** bloqueados en la madre (Fase 1).
-- `scripts/seo_weekly.sh` aún no está subido: va con el siguiente push
-  de la madre (local; `check_site.py` ya entró en `9e823ec`).
-- Programar el rastreo semanal (cron) es de la madre.
+- **Cron del rastreo semanal:** pendiente de programar; los
+  recordatorios de fechas clave (7-dic, etc.) ya están programados
+  desde Gestión (aviso de Gestión, 24-nov).
 
 ## Reglas
 

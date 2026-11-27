@@ -3,3 +3,7 @@
 node_modules
 _site/
 logs/
+# Raw Search Console and Bing exports stay local: the repo is public (Alex, 26-nov)
+docs/seo/bing-*/
+docs/seo/gsc-*/
+docs/seo/**/*.json

@@ -103,21 +103,31 @@
 
 - [ ] **`/social/`:** plan en `docs/social-page-plan.md` (24-nov), en
   espera de la Fase 1; preguntas abiertas en su §5.
-- [ ] **SEO:** informe de la subsesión en `docs/seo/audit-2026-11-24.md`
-  (24-nov): 1 alta (H-A1, `sitemap.xml` por subpágina de la ayuda da
-  404, confirmado en vivo), 4 medias, 9 bajas y P-1 a P-4 para Alex.
-  Propuestas para `check_site.py` en `docs/seo/checklist.md`.
-  Aprobado por Alex y hecho en local el 24-nov: H-A1 (301 por subpágina
-  en `build_site.sh`), H-M1, H-M2 (`WebSite`), H-M3 (pendiente del visto
-  bueno de Garaticker), H-B1 (301 de `index.html`), H-B4 y H-B5, y GitHub
-  en `sameAs`. H-B2 sin cambio (lleva `noindex`). Lo de la ayuda, en la
-  Entrada de Garaticker. P-1 a P-4: Alex, más adelante (hacia el 7-dic).
-- [ ] **Commit local sin subir (25-nov):** la automatización de
-  publicación de esta orden (`scripts/publish.sh`, Action
-  `.github/workflows/post-deploy.yml`, C-15 en `check_site.py`,
-  `logs/` en `.gitignore`) más el re-sync de `img/brand/garaticker/og-image.png`
-  con brand `a85b3e2`. Publicar solo con el sí de Alex en este chat,
-  con `scripts/publish.sh`.
+- [ ] **SEO:** correcciones aprobadas de la auditoría del 24-nov
+  publicadas en `456ac08` (Vibe aplastó y subió los cuatro commits
+  locales con el sí de Alex vía Gestión). Comprobado en vivo el 26-nov:
+  12 `…/help/*/sitemap.xml` y los `index.html` dan 301, `/tabaibi/` 200,
+  `WebSite` en la portada, `docs/` y `scripts/publish.sh` dan 404.
+  Pendiente: H-M3, visto bueno de Garaticker; lo de la ayuda (H-B3,
+  H-B6, H-B7 y el tema), en su Entrada. P-1 cerrado (H-A1 confirmado,
+  `docs/seo/crawl-404-2026-11-25.md`). `check_site.py` avisa de C-07 en
+  legal (`lastmod` 20-nov, último commit 24-nov solo por Open Graph):
+  subir `lastmod` o aceptarlo.
+- [ ] **Datos brutos de SEO fuera de git** (Alex, 26-nov): los JSON de
+  `docs/seo/bing-*/` y `gsc-*/` salen del repo y entran en `.gitignore`;
+  se quedan en disco. Siguen en el historial (`0443345`); no se
+  reescribe. Falta subirlo con el sí de Alex.
+- [ ] **Nada pendiente de push (25-nov):** la automatización de
+  publicación quedó publicada con el push de Alex `766b9cd`
+  (`publish.sh`, Action post-deploy, C-15, `seo_weekly.sh`). Brand
+  `43fb808` sincronizado el 25-nov con `sync_brand.sh`: copias ya al
+  día, sin cambios (C-15 ok).
+- [ ] **Action post-deploy, limitación conocida (25-nov):** el trigger
+  `workflow_run` no se disparó para los runs «dynamic» de Workers
+  Builds (comprobado con `766b9cd`: 0 runs de «Post-deploy live
+  checks»); de momento se lanza a mano con `workflow_dispatch` y el
+  post-deploy queda cubierto por `publish.sh` en el push. Valorar
+  añadir un `schedule` como red de seguridad.
 - [ ] **Favicon con la G en `/garaticker/help/`** (petición de Marca,
   23-nov): la ayuda se genera en el repo de Garaticker y se copia con
   `sync_garaticker.sh help`. La sesión Garaticker investigó el 24-nov
@@ -127,24 +137,20 @@
   `brand/logos/garaticker/favicon/`. Cuando Garaticker lo publique,
   re-sincronizar aquí con `scripts/sync_garaticker.sh help` y subir con
   el sí de Alex.
-- [ ] **Panel de Tabaibi:** borrar `tabaibi-panel-new` cuando Tabaibi
-  avise del final del traslado (hacia el 27-nov o después), con el sí
-  de Alex. Mientras dure el rodaje, vuelta atrás si Tabaibi la pide:
+- [ ] **Panel de Tabaibi:** Tabaibi avisó el 25-nov (vía Gestión):
+  promote stable `9ca6005` hecho y verificado, panel en producción.
+  Borrar el A temporal `tabaibi-panel-new` al cerrar los pasos 9-11
+  del plan de dominios, con el sí de Alex. Vuelta atrás si Tabaibi la
+  pide:
   borrar el A de `tabaibi-panel` y crear el CNAME
   `tabaibi-panel.sanchesque.com.alex-s8yt.dns.northflank.app` (sin
   proxy, TTL 60).
 - [ ] **Paso 9 (Alex), entre el 27-nov y el 4-dic:** desactivar GitHub
   Pages sin borrar su TXT y activar DNSSEC (el DS se pone en IONOS con
   la clave de su API). Después, revocar la clave de IONOS.
-- [ ] **Hacia el 7-dic, 404 de Googlebot:** el 23-nov eran el 21 % del
-  rastreo (pico el 15-nov, aún en GitHub Pages). Rastreo propio del
-  23-nov: ningún enlace ni recurso nuestro roto. Si el porcentaje no
-  baja, Alex abre en Search Console Ajustes › Estadísticas de rastreo ›
-  «No se ha encontrado (404)», que lista las URL, y se decide.
-  Candidatas: URL antiguas e internas que ya dan 404 a propósito.
-  `/favicon.ico` y `/apple-touch-icon.png` en la raíz redirigen con 301
-  a `img/brand/` desde el 23-nov (`build_site.sh` añade las dos reglas
-  a `_redirects`).
+- [ ] **Hacia el 7-dic, 404 de Googlebot:** la causa era H-A1 (los 12
+  `…/help/*/sitemap.xml`, último 404 el 21-nov), resuelta en `456ac08`.
+  Comprobar en el informe de diciembre que el porcentaje baja.
 - [ ] **GIPHY (D-07):** cuando apruebe el canal de marca, volver a poner
   sus enlaces en el pie, `sameAs`, la página de Garaticker y el perfil.
 
