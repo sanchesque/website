@@ -20,6 +20,7 @@ import subprocess
 import sys
 import urllib.error
 import urllib.request
+from datetime import date as _date
 from pathlib import Path
 from urllib.parse import urljoin
 
@@ -75,6 +76,31 @@ def own_pages():
 
 def generated_pages():
     return [p for p in pages if is_generated(p.relative_to(SITE)) and p.name != "404.html"]
+
+
+def main_text(html):
+    """Visible text of <main>: what lastmod must follow (H-M1), not head or meta tags."""
+    m = re.search(r"<main\b.*?</main>", html, re.S)
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", m.group(0) if m else "")).strip()
+
+
+def visible_change_date(rel):
+    """Date of the newest commit that changed the <main> text of rel; None without git."""
+    try:
+        log = subprocess.run(["git", "-C", str(REPO), "log", "--format=%h %cs", "--", rel],
+                             capture_output=True, text=True, timeout=10).stdout.split("\n")
+        current, date = main_text((REPO / rel).read_text(encoding="utf-8")), None
+        for line in filter(None, log):
+            sha, day = line.split()
+            old = subprocess.run(["git", "-C", str(REPO), "show", f"{sha}:{rel}"],
+                                 capture_output=True, text=True, timeout=10).stdout
+            if main_text(old) != current:
+                return date or _date.today().isoformat()  # no date yet: the change is not committed
+            date = day  # this commit already had today's visible text
+        # shortcut: no older differing text (first commit or shallow clone), skip rather than guess
+        return None
+    except Exception:
+        return None  # no git: skip
 
 
 def tag(text, pattern):
@@ -233,15 +259,9 @@ for m in re.finditer(r"<url>(.*?)</url>", sitemap, re.S):
         err(f"C-07: sitemap hreflang of {loc} differs from the page")
     lastmod = re.search(r"<lastmod>([^<]+)</lastmod>", block)
     if lastmod:
-        try:
-            out = subprocess.run(["git", "-C", str(REPO), "log", "-1", "--format=%cs", "--", rel],
-                                 capture_output=True, text=True, timeout=10)
-            if out.returncode == 0 and out.stdout.strip() and out.stdout.strip() > lastmod.group(1):
-                # aviso, no error: lastmod solo debe reflejar cambios de contenido
-                # visible (H-M1); legal cambió de cabeceras (OG, 24-nov) sin lastmod
-                warn(f"C-07 {loc}: lastmod {lastmod.group(1)} is older than its last commit {out.stdout.strip()}")
-        except Exception:
-            pass  # no git: skip
+        changed = visible_change_date(rel)
+        if changed and changed > lastmod.group(1):
+            warn(f"C-07 {loc}: lastmod {lastmod.group(1)} is older than its last visible change {changed}")
 
 # C-08 noindex: only on 404 pages
 for p in pages:

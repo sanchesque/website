@@ -19,6 +19,17 @@
 
 ## Hecho
 
+- 27-nov · Claude: C-07 de `check_site.py` mira solo el texto visible
+  de `<main>` (propuesta de SEO, H-M1); un cambio de cabeceras ya no
+  pide subir `lastmod`. Quedan 3 avisos W-01, de la ayuda (Garaticker).
+- 27-nov · Claude, con el sí de Alex: **historial reescrito.** `0443345`
+  (llevaba 17 JSON crudos de Search Console y Bing) sustituido por
+  `e53e39b`, mismo árbol sin los JSON; `push --force-with-lease`. Copia
+  local en la rama `backup/pre-rewrite-2026-11-27` (sin subir). GitHub
+  aún sirve `0443345` por su SHA hasta que lo purgue GitHub Support.
+  Comprobado en vivo: 200, 301 y 404 como antes; `check_site.py --live`
+  en verde. Cualquier clon con `0443345` (también el de Vibe) hace
+  `git fetch && git reset --hard origin/master`.
 - 16 a 19-nov · Claude: logotipo de Garaticker en su página; DNS de
   `sanchesque.com` en Cloudflare (zona `04cb72bf…`, servidores de
   nombres cambiados el 17-nov) y vigilado hasta el 19-nov; correo bien.
@@ -110,13 +121,8 @@
   `WebSite` en la portada, `docs/` y `scripts/publish.sh` dan 404.
   Pendiente: H-M3, visto bueno de Garaticker; lo de la ayuda (H-B3,
   H-B6, H-B7 y el tema), en su Entrada. P-1 cerrado (H-A1 confirmado,
-  `docs/seo/crawl-404-2026-11-25.md`). `check_site.py` avisa de C-07 en
-  legal (`lastmod` 20-nov, último commit 24-nov solo por Open Graph):
-  subir `lastmod` o aceptarlo.
-- [ ] **Datos brutos de SEO fuera de git** (Alex, 26-nov): los JSON de
-  `docs/seo/bing-*/` y `gsc-*/` salen del repo y entran en `.gitignore`;
-  se quedan en disco. Siguen en el historial (`0443345`); no se
-  reescribe. Falta subirlo con el sí de Alex.
+  `docs/seo/crawl-404-2026-11-25.md`). C-07 ya compara solo el texto visible de
+  `<main>` (27-nov): legal sin aviso.
 - [ ] **Nada pendiente de push (25-nov):** la automatización de
   publicación quedó publicada con el push de Alex `766b9cd`
   (`publish.sh`, Action post-deploy, C-15, `seo_weekly.sh`). Brand
@@ -139,15 +145,17 @@
   el sí de Alex.
 - [ ] **Panel de Tabaibi:** Tabaibi avisó el 25-nov (vía Gestión):
   promote stable `9ca6005` hecho y verificado, panel en producción.
-  Borrar el A temporal `tabaibi-panel-new` al cerrar los pasos 9-11
-  del plan de dominios, con el sí de Alex. Vuelta atrás si Tabaibi la
-  pide:
+  Borrar el A temporal `tabaibi-panel-new` cuando Tabaibi cierre los
+  pasos 9-11 de la VPS, con el sí de Alex en este chat (ratificado por
+  Gestión el 27-nov-2026). Vuelta atrás si Tabaibi la pide:
   borrar el A de `tabaibi-panel` y crear el CNAME
   `tabaibi-panel.sanchesque.com.alex-s8yt.dns.northflank.app` (sin
   proxy, TTL 60).
-- [ ] **Paso 9 (Alex), entre el 27-nov y el 4-dic:** desactivar GitHub
-  Pages sin borrar su TXT y activar DNSSEC (el DS se pone en IONOS con
-  la clave de su API). Después, revocar la clave de IONOS.
+- [ ] **Paso 9 (Alex), ventana abierta el 27-nov, hasta el 4-dic:**
+  desactivar GitHub Pages sin borrar su TXT y activar DNSSEC (el DS se
+  pone en IONOS con la clave de su API). Después, revocar la clave de
+  IONOS y `npx wrangler logout`. Lo ejecuta Alex en el chat de esta
+  sesión, con su sí por paso (aviso de Gestión, 27-nov-2026).
 - [ ] **Hacia el 7-dic, 404 de Googlebot:** la causa era H-A1 (los 12
   `…/help/*/sitemap.xml`, último 404 el 21-nov), resuelta en `456ac08`.
   Comprobar en el informe de diciembre que el porcentaje baja.
@@ -161,6 +169,14 @@ Ninguna. La protección de dominio de IONOS no hace falta (Alex,
 
 ## Para quien coja el turno
 
+- **Aviso en cascada confirmado el 27-nov-2026** (cambio de AGENTS.md
+  por Alex, vía Gestión): (1) nunca ramas `claude/*` ni
+  `.claude/worktrees/`; worktree propio `vibe/<tarea>` desde la rama
+  principal y comprobar `git branch --show-current` antes de escribir;
+  (2) push, despliegue, Cloudflare o IONOS solo con el sí de Alex
+  escrito en la conversación de esta sesión, no vía Gestión; (3) los
+  `Co-Authored-By` van solos en el último párrafo, tras línea en
+  blanco; (4) los avisos en cascada se confirman.
 - Nada se sube sin el sí de Alex en el chat de esta sesión; el de otra
   sesión no vale. Cada escritura en Cloudflare o IONOS, también.
 - Publicar: con el sí de Alex, `scripts/publish.sh` (cadena completa con

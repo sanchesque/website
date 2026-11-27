@@ -92,3 +92,10 @@ Entrada de la madre: `admin/web-backlog.md`.
 
 - Nada se publica sin el sí de Alex en el chat de la sesión madre.
 - Convenciones de fecha+hash, arriba.
+- **Aviso en cascada de Gestión (2026-11-27, cambio de AGENTS.md por
+  Alex), confirmado:** (1) nunca tocar ramas `claude/*` ni
+  `.claude/worktrees/`; (2) nada de push/despliegue sin el sí de Alex
+  escrito en la conversación de la sesión madre; (3) los
+  `Co-Authored-By` van solos en el último párrafo del commit, tras una
+  línea en blanco; (4) los avisos en cascada se confirman respondiendo
+  «confirmado».
