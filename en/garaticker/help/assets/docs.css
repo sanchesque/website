@@ -69,3 +69,11 @@ html .md-footer-meta.md-typeset a:not(:focus, :hover) {
 
 /* monochrome: the active item stands out by weight, not by colour */
 .md-nav__link--active { font-weight: 700; }
+
+/* touch targets at least 24 px (WCAG 2.2 2.5.8; SEO audit H-B7, 2026-11-24):
+   the «¶» heading permalinks and the small menu links were below that */
+.md-typeset .headerlink {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 24px; min-height: 24px;
+}
+.md-nav__link, .md-select__link { min-height: 24px; }

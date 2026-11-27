@@ -19,6 +19,15 @@
 
 ## Hecho
 
+- 27-nov · Claude: ayuda de Garaticker re-sincronizada desde su
+  `f887128` (`sync_garaticker.sh help`): la G como favicon y logo de
+  cabecera, títulos más largos (H-B3, ya sin avisos W-01) y su arreglo
+  del sitemap en el tema (H-A1). `check_site.py` sin avisos. Local,
+  falta push con el sí de Alex.
+- 27-nov · Claude, con el sí de Alex: publicado `0a1623b` (C-07 sobre
+  texto visible y traspasos del 27-nov); Workers Builds bien,
+  `check_site.py --live` en verde. Brand `bd1c0f7` sincronizado con
+  `sync_brand.sh` a petición de Marca: copias ya al día, sin cambios.
 - 27-nov · Claude: C-07 de `check_site.py` mira solo el texto visible
   de `<main>` (propuesta de SEO, H-M1); un cambio de cabeceras ya no
   pide subir `lastmod`. Quedan 3 avisos W-01, de la ayuda (Garaticker).
